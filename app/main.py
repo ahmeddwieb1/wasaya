@@ -2,6 +2,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.v1 import api_router
 from app.scheduler.jobs import start_scheduler, stop_scheduler
@@ -18,6 +19,23 @@ app = FastAPI(
     title="Wasaya API",
     version="1.0.0",
     lifespan=lifespan,
+)
+
+
+"""
+Enable CORS for the frontend dev server. Keep this list focused and simple for the MVP.
+"""
+origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # ------------------------------------------------------------------

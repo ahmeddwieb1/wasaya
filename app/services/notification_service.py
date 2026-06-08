@@ -22,8 +22,16 @@ class NotificationService:
 
         with smtplib.SMTP(settings.smtp_host, settings.smtp_port) as server:
             server.ehlo()
-            server.starttls()
-            server.login(settings.smtp_username, settings.smtp_password)
+
+            # ✅ Use STARTTLS only if configured (MailHog doesn't need it)
+            if settings.smtp_use_tls:
+                server.starttls()
+                server.ehlo()
+
+            # ✅ Only login if credentials are provided (MailHog has no auth)
+            if settings.smtp_username and settings.smtp_password:
+                server.login(settings.smtp_username, settings.smtp_password)
+
             server.sendmail(settings.smtp_from_email, to_email, msg.as_string())
 
     # ------------------------------------------------------------------

@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, Query, Response, status
 from sqlalchemy.ext.asyncio import AsyncSession
+from datetime import datetime, timedelta, timezone
 
 from app.core.config import get_settings
 from app.core.dependencies import get_current_user
@@ -39,7 +40,7 @@ async def login(
 ):
     service = AuthService(db)
     user = await service.login(data.email, data.password)
-
+    print ("login_at",datetime.now(timezone.utc))
     token = create_access_token(user.id)
     response.set_cookie(
         key="access_token",

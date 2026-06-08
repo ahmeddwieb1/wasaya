@@ -26,12 +26,21 @@ class Settings(BaseSettings):
     cookie_samesite: str = "lax"
 
     # SMTP
-    smtp_host: str
-    smtp_port: int = 587
-    smtp_username: str
-    smtp_password: str
-    smtp_from_email: str
+    # smtp_host: str
+    # smtp_port: int = 587
+    # smtp_username: str
+    # smtp_password: str
+    # smtp_from_email: str
+    # smtp_from_name: str = "Wasaya"
+    # -----------------------------------
+    # Email settings for development
+    smtp_host: str = "localhost"
+    smtp_port: int = 1025
+    smtp_username: str = ""
+    smtp_password: str = ""
+    smtp_use_tls: bool = False  # MailHog doesn't need TLS
     smtp_from_name: str = "Wasaya"
+    smtp_from_email: str = "noreply@wasaya.local"
 
     class Config:
         env_file = BASE_DIR / ".env"

@@ -27,16 +27,20 @@ async def _send_checkins_job() -> None:
         notification_service = NotificationService()
 
         users = await user_repo.get_all_active_verified()
-        now = datetime.now(timezone.utc)
+        now = datetime.now()
 
         for user in users:
             try:
-                interval_hours = 24
+                interval_hours = 0.02
                 if user.settings:
                     interval_hours = user.settings.check_interval_hours
 
                 # Use last_seen_at or created_at as the reference point
                 reference = user.last_seen_at or user.created_at
+
+                if reference.tzinfo is not None:
+                    reference = reference.replace(tzinfo=None)
+
                 next_checkin_due = reference + timedelta(hours=interval_hours)
 
                 if now < next_checkin_due:
@@ -95,7 +99,7 @@ def start_scheduler() -> None:
     scheduler.add_job(
         _send_checkins_job,
         trigger="interval",
-        hours=1,
+        seconds=60,
         id="send_checkins",
         replace_existing=True,
     )

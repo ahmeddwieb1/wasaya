@@ -94,7 +94,7 @@ class AuthService:
                 detail={"message": "This verification link has already been used"},
             )
 
-        if token_record.expires_at < datetime.now(timezone.utc):
+        if token_record.expires_at.replace(tzinfo=timezone.utc) < datetime.now(timezone.utc):
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail={"message": "Verification link has expired"},
@@ -115,6 +115,7 @@ class AuthService:
         self, user_id: str, token_type: TokenType, expires_hours: int = 24
     ) -> str:
         raw_token = generate_token()
+        print(f"\n--- DEBUG TOKEN: {raw_token} ---\n")
         token_record = VerificationToken(
             user_id=user_id,
             token_hash=hash_token(raw_token),

@@ -39,6 +39,7 @@ class CheckinService:
         await self.checkin_repo.create(event)
 
         raw_token = generate_token()
+        print ("raw_tokenfor checkin", raw_token)
         token_record = VerificationToken(
             user_id=user.id,
             token_hash=hash_token(raw_token),
@@ -68,7 +69,11 @@ class CheckinService:
                 detail={"message": "This confirmation link has already been used"},
             )
 
-        if token_record.expires_at < datetime.now(timezone.utc):
+        expires_at = token_record.expires_at
+        if expires_at.tzinfo is None:
+            expires_at = expires_at.replace(tzinfo=timezone.utc)
+
+        if expires_at < datetime.now(timezone.utc):
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail={"message": "Confirmation link has expired"},

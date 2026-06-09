@@ -31,7 +31,7 @@ async def _send_checkins_job() -> None:
 
         for user in users:
             try:
-                interval_hours = 0.02
+                interval_hours = 2
                 if user.settings:
                     interval_hours = user.settings.check_interval_hours
 
@@ -99,7 +99,7 @@ def start_scheduler() -> None:
     scheduler.add_job(
         _send_checkins_job,
         trigger="interval",
-        seconds=60,
+        minutes=60,
         id="send_checkins",
         replace_existing=True,
     )
@@ -108,7 +108,7 @@ def start_scheduler() -> None:
     scheduler.add_job(
         _expire_checkins_job,
         trigger="interval",
-        minutes=15,
+        minutes=60,
         id="expire_checkins",
         replace_existing=True,
     )

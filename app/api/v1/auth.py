@@ -25,9 +25,9 @@ async def signup(
 
     try:
         NotificationService().send_verification_email(user, raw_token)
-    except Exception:
-        # Don't fail signup if email sending fails; log in production
-        pass
+        print(f"✅ Verification email sent to {user.email}")
+    except Exception as e:
+        print(f"❌ Failed to send verification email: {e}")
 
     return user
 

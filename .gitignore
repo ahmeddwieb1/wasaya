@@ -1,0 +1,28 @@
+# Python
+__pycache__
+*.py[cod]
+*.so
+.Python
+.env
+.venv
+venv/
+ENV/
+dist/
+build/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Docker
+*.log
+
+# Database
+*.db
+*.sqlite3
+
+# Secrets
+.env
+*.pem

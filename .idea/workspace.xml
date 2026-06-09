@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="change sending email by brevo">
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="add Dockerfile">
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/checkin_event.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/checkin_event.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/scheduler/jobs.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/scheduler/jobs.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +93,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780992942010</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add Dockerfile">
+      <option name="closed" value="true" />
+      <created>1780993398958</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1780993398958</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -102,6 +118,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix some bug and add temp frontend" />
     <MESSAGE value="change sending email by brevo" />
-    <option name="LAST_COMMIT_MESSAGE" value="change sending email by brevo" />
+    <MESSAGE value="add Dockerfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Dockerfile" />
   </component>
 </project>

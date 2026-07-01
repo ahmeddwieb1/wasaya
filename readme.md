@@ -18,11 +18,13 @@ wasaya/
 │   │   └── v1/
 │   │       ├── __init__.py
 │   │       ├── auth.py
+│   │       ├── dashboard.py
 │   │       ├── settings.py
 │   │       ├── contacts.py
 │   │       └── checkin.py
 │   │
 │   ├── core/
+│   │   ├── __init__.py
 │   │   ├── config.py
 │   │   ├── security.py
 │   │   └── dependencies.py
@@ -35,10 +37,10 @@ wasaya/
 │   ├── models/
 │   │   ├── __init__.py
 │   │   ├── user.py
-│   │   ├── settings.py
-│   │   ├── contact.py
-│   │   ├── checkin.py
-│   │   └── token.py
+│   │   ├── user_settings.py
+│   │   ├── emergency_contact.py
+│   │   ├── checkin_event.py
+│   │   └── verification_token.py
 │   │
 │   ├── schemas/
 │   │   ├── __init__.py
@@ -49,17 +51,17 @@ wasaya/
 │   │
 │   ├── repositories/
 │   │   ├── __init__.py
-│   │   ├── user.py
-│   │   ├── settings.py
-│   │   ├── contacts.py
-│   │   ├── checkin.py
-│   │   └── tokens.py
+│   │   ├── user_repository.py
+│   │   ├── settings_repository.py
+│   │   ├── contact_repository.py
+│   │   ├── checkin_repository.py
+│   │   └── token_repository.py
 │   │
 │   ├── services/
 │   │   ├── __init__.py
-│   │   ├── auth.py
-│   │   ├── checkin.py
-│   │   └── notifications.py
+│   │   ├── auth_service.py
+│   │   ├── checkin_service.py
+│   │   └── notifications_service.py
 │   │
 │   ├── scheduler/
 │   │   ├── __init__.py
@@ -75,6 +77,8 @@ wasaya/
 ├── alembic.ini
 ├── requirements.txt
 ├── README.md
+├── Dockerfile
+├── docker-compose.yml
 └── .gitignore
 ```
 

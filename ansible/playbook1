@@ -1,0 +1,8 @@
+---
+# playbook file 
+
+- name: Install and configure web servers
+  hosts: web
+  become: yes
+  roles:
+    - wasaya

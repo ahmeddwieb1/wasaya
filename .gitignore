@@ -25,3 +25,20 @@ build/
 
 # Secrets
 *.pem
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+
+# Terraform provider binaries
+terraform-provider-*
+
+# tfvars
+*.tfvars
+*.tfvars.json
+
+*.terraform
+
+*.key
+*.crt

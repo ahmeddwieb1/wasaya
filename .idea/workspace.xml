@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="fix Dockerfile and add docker-compose">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scheduler/jobs.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/scheduler/jobs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible/wasya/defaults/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/wasya/defaults/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible/wasya/handlers/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/wasya/handlers/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible/wasya/tasks/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/wasya/tasks/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible/wasya/tests/test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/wasya/tests/test.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible/wasya/vars/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/wasya/vars/main.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,19 +53,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.main.executor": "Run",
-    "Python.test.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHELLCHECK.PATH": "/home/dwieb/.local/share/JetBrains/PyCharm2025.3/Shell Script/shellcheck",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/dwieb/PycharmProjects/Coursera-Serverless-Computing-using-AWS-Lambda-Create-a-thumbnail-function"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHELLCHECK.PATH&quot;: &quot;/home/dwieb/.local/share/JetBrains/PyCharm2025.3/Shell Script/shellcheck&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/dwieb/PycharmProjects/Coursera-Serverless-Computing-using-AWS-Lambda-Create-a-thumbnail-function&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/utils" />

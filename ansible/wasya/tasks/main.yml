@@ -1,0 +1,104 @@
+---
+
+- name: Install prerequisites
+  apt:
+    name:
+      - ca-certificates
+      - curl
+    state: present
+    update_cache: yes
+
+- name: Create keyrings directory
+  file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: "0755"
+
+- name: Download Docker GPG key
+  get_url:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    dest: /etc/apt/keyrings/docker.asc
+    mode: "0644"
+
+- name: Add Docker repository
+  apt_repository:
+    repo: >
+      deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc]
+      https://download.docker.com/linux/ubuntu
+      {{ ansible_distribution_release }}
+      stable
+
+- name: Install Docker 
+  apt:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    state: present
+    update_cache: yes
+
+- name: Start and enable Docker
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Add user to docker group
+  user:
+    name: "{{ ansible_user }}"
+    groups: docker
+    append: yes
+
+- name: check if docker run
+  command: docker --version
+
+
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+
+- name: Start and enable Nginx
+  systemd:
+    name: nginx
+    state: started
+    enabled: yes
+
+- name: copy nginx config
+  copy:
+    src: nginx.config
+    dest: /etc/nginx/sites-enabled/nginx.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart nginx
+    
+- name: Create ssl directory
+
+  file:
+      path: /etc/nginx/ssl
+      state: directory
+      mode: "0755"
+
+- name: copy cert 
+  copy:
+    src: wasya.crt
+    dest: /etc/nginx/ssl/wasya.crt
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: copy private key
+  copy:
+    src: wasya.key
+    dest: /etc/nginx/ssl/wasya.key
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: reload nginx
+  service:
+    name: nginx
+    state: reloaded
+

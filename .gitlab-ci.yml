@@ -1,0 +1,80 @@
+stages:
+  - test
+  - docker
+  - playbook
+  - deploy
+
+variables:
+  IMAGE_NAME: $DOCKER_USERNAME/wasya
+  APP_VERSION: $CI_PIPELINE_IID
+
+smoke-test:
+  stage: test
+  image: docker:24
+
+  before_script:
+    - apk add --no-cache curl
+    - env | grep -E '^(PORT|MONGO_URI|JWT_SECRET|JWT_EXPIRES_IN)' >> .env
+  services:
+    - docker:dind
+
+  script:
+    - docker build -t $IMAGE_NAME:$APP_VERSION .
+    - docker network create test-net || true
+    - docker run -d --name wasya --network test-net --env-file .env $IMAGE_NAME:$APP_VERSION
+    - sleep 10
+    - docker network ls
+    - docker logs wasya
+    - docker run --rm --network test-net alpine:latest sh -c "apk add curl && curl -s http://wasya:5000" || curl -s http://wasya:5000 || exit 1
+
+docker-build:
+  stage: docker
+  image: docker:24
+
+  services:
+    - docker:dind
+
+  script:
+    - echo "username:" $DOCKER_USERNAME "password:" $DOCKER_PASSWORD     
+    - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+    - docker build -t $IMAGE_NAME:$APP_VERSION .
+    - docker push $IMAGE_NAME:$APP_VERSION
+
+playbook:
+  stage: playbook
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache openssh-client ansible
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - ssh-keyscan -H "$EC2_HOST" >> ~/.ssh/known_hosts
+    - echo $SSL_KEY > ansible/wasya/files/wasya.key
+    - echo $SSL_CERT > ansible/wasya/files/wasya.crt
+
+  script:
+    - ansible-playbook --private-key ~/.ssh/id_rsa -i ansible/hosts.ini ansible/playbook1
+
+deploy:
+  stage: deploy
+  image: alpine:latest
+
+  before_script:
+    - apk add --no-cache openssh-client
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - echo $EC2_USER-$EC2_HOST  
+    - echo $IMAGE_NAME:$APP_VERSION
+    - env | grep -E '^(PORT|MONGO_URI|JWT_SECRET|JWT_EXPIRES_IN)' >> .env
+
+  script:
+    - |
+      scp -o StrictHostKeyChecking=no .env $EC2_USER@$EC2_HOST:/home/$EC2_USER/.env
+      
+      ssh -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST "
+        docker pull $IMAGE_NAME:$APP_VERSION
+        docker stop linkin || true
+        docker rm linkin || true
+        docker run -d --name linkin -p 5000:5000 --env-file /home/$EC2_USER/.env $IMAGE_NAME:$APP_VERSION
+      "

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="edit 6 gitlab" />
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="fix 8">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -172,7 +175,23 @@
       <option name="project" value="LOCAL" />
       <updated>1784488658585</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix 7">
+      <option name="closed" value="true" />
+      <created>1784489111617</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1784489111617</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix 8">
+      <option name="closed" value="true" />
+      <created>1784489394710</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1784489394710</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,6 +217,8 @@
     <MESSAGE value="edit 4 docker-compose.yml" />
     <MESSAGE value="edit 5 gitlab" />
     <MESSAGE value="edit 6 gitlab" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit 6 gitlab" />
+    <MESSAGE value="fix 7" />
+    <MESSAGE value="fix 8" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix 8" />
   </component>
 </project>

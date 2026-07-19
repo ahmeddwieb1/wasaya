@@ -20,6 +20,7 @@ smoke-test:
 
   script:
     - docker build -t $IMAGE_NAME:$APP_VERSION .
+    - docker images
     - docker compose up -d
     - sleep 10
     - docker network ls

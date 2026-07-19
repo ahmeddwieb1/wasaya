@@ -9,7 +9,7 @@
 #6 volume to backend and db
 services:
   backend:
-    build: ${IMAGE_NAME:-wasya}:${APP_VERSION:-latest}
+    build: ${IMAGE_NAME}:${APP_VERSION}
     env_file:
       - .env
     ports:

@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="first edit in gitlab and ansible tasks">
-      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="edit 2 in gitlab and ansible tasks and docker-compose.yml">
       <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/elwasya2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/elwasya2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ansible/hosts.ini" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/hosts.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ansible/wasya/tasks/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/wasya/tasks/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784421690226</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="edit 2 in gitlab and ansible tasks and docker-compose.yml">
+      <option name="closed" value="true" />
+      <created>1784480682477</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1784480682477</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,6 +164,7 @@
     <MESSAGE value="fix Dockerfile and add docker-compose" />
     <MESSAGE value="start deploy phase 1" />
     <MESSAGE value="first edit in gitlab and ansible tasks" />
-    <option name="LAST_COMMIT_MESSAGE" value="first edit in gitlab and ansible tasks" />
+    <MESSAGE value="edit 2 in gitlab and ansible tasks and docker-compose.yml" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit 2 in gitlab and ansible tasks and docker-compose.yml" />
   </component>
 </project>

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="fix 12" />
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="edit on ansible">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,6 +68,7 @@
       <recent name="$PROJECT_DIR$/app/core" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ansible" />
       <recent name="$PROJECT_DIR$/alembic" />
     </key>
   </component>
@@ -220,7 +223,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784492792675</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="edit on ansible">
+      <option name="closed" value="true" />
+      <created>1784493444153</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1784493444154</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -252,6 +263,7 @@
     <MESSAGE value="fix 10" />
     <MESSAGE value="fix 11" />
     <MESSAGE value="fix 12" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix 12" />
+    <MESSAGE value="edit on ansible" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit on ansible" />
   </component>
 </project>

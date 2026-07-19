@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="fix Dockerfile and add docker-compose">
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="start deploy phase 1">
+      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ansible/wasya/defaults/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/wasya/defaults/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ansible/wasya/handlers/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/wasya/handlers/main.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ansible/wasya/tasks/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/wasya/tasks/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ansible/wasya/tests/test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/wasya/tests/test.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ansible/wasya/vars/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/wasya/vars/main.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +120,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781049574098</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="start deploy phase 1">
+      <option name="closed" value="true" />
+      <created>1784417564373</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1784417564374</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -142,6 +147,7 @@
     <MESSAGE value="change sending email by brevo" />
     <MESSAGE value="add Dockerfile" />
     <MESSAGE value="fix Dockerfile and add docker-compose" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix Dockerfile and add docker-compose" />
+    <MESSAGE value="start deploy phase 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="start deploy phase 1" />
   </component>
 </project>

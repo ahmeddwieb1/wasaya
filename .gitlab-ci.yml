@@ -14,14 +14,13 @@ smoke-test:
 
   before_script:
     - apk add --no-cache curl
-    - env | grep -E '^(PORT|MONGO_URI|JWT_SECRET|JWT_EXPIRES_IN)' >> .env
+    - env | grep -E '^(SECRET_KEY|SMTP_FROM_EMAIL|SMTP_FROM_NAME|SMTP_HOST|SMTP_PASSWORD|SMTP_PORT|SMTP_USERNAME|SMTP_USE_TLS|SMTP_PORT)' >> .env
   services:
     - docker:dind
 
   script:
     - docker build -t $IMAGE_NAME:$APP_VERSION .
-    - docker network create test-net || true
-    - docker run -d --name wasya --network test-net --env-file .env $IMAGE_NAME:$APP_VERSION
+    - docker-compose up -d --env-file .env $IMAGE_NAME:$APP_VERSION
     - sleep 10
     - docker network ls
     - docker logs wasya
@@ -49,9 +48,6 @@ playbook:
     - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
     - ssh-keyscan -H "$EC2_HOST" >> ~/.ssh/known_hosts
-    - echo $SSL_KEY > ansible/wasya/files/wasya.key
-    - echo $SSL_CERT > ansible/wasya/files/wasya.crt
-
   script:
     - ansible-playbook --private-key ~/.ssh/id_rsa -i ansible/hosts.ini ansible/playbook1
 
@@ -66,7 +62,7 @@ deploy:
     - chmod 600 ~/.ssh/id_rsa
     - echo $EC2_USER-$EC2_HOST  
     - echo $IMAGE_NAME:$APP_VERSION
-    - env | grep -E '^(PORT|MONGO_URI|JWT_SECRET|JWT_EXPIRES_IN)' >> .env
+    - env | grep -E '^(SECRET_KEY|SMTP_FROM_EMAIL|SMTP_FROM_NAME|SMTP_HOST|SMTP_PASSWORD|SMTP_PORT|SMTP_USERNAME|SMTP_USE_TLS)' >> .env
 
   script:
     - |
@@ -74,7 +70,6 @@ deploy:
       
       ssh -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST "
         docker pull $IMAGE_NAME:$APP_VERSION
-        docker stop linkin || true
-        docker rm linkin || true
-        docker run -d --name linkin -p 5000:5000 --env-file /home/$EC2_USER/.env $IMAGE_NAME:$APP_VERSION
+        docker compose down || true
+        docker compose up -d --env-file /home/$EC2_USER/.env $IMAGE_NAME:$APP_VERSION
       "

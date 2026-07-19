@@ -69,13 +69,6 @@
     group: root
     mode: '0644'
 
-- name: Copy .env file to server
-  copy:
-    src: .env
-    dest: /opt/wasya/.env
-    owner: ubuntu
-    group: ubuntu
-    mode: '0600'
 
 #Nginx
 #- name: Install Nginx

@@ -74,6 +74,7 @@ deploy:
 
   script:
     - |
+      scp -o StrictHostKeyChecking=no .env $EC2_USER@$EC2_HOST:/opt/wasya/.env
       ssh -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST "
         cd /opt/wasya
         docker pull $IMAGE_NAME:$APP_VERSION

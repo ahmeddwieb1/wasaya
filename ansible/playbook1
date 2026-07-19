@@ -5,4 +5,4 @@
   hosts: web
   become: yes
   roles:
-    - wasaya
+    - elwasaya

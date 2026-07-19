@@ -22,9 +22,11 @@ smoke-test:
     - docker build -t $IMAGE_NAME:$APP_VERSION .
     - docker images
     - docker compose up -d
-    - sleep 10
+    - sleep 20
     - docker network ls
     - docker compose logs backend
+    - docker compose ps
+    - docker compose exec backend curl -s http://localhost:8000/health/db
     - |
       docker run --rm --network elwasya_backend-net alpine:latest sh -c "
         apk add curl

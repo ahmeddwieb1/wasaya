@@ -21,7 +21,7 @@ services:
        db:
          condition: service_healthy
     networks:
-      - backend-net
+      - elwasya_backend-net
   db:
     image: "mysql:8.4.5"
     restart: always

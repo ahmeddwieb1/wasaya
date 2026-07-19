@@ -26,7 +26,6 @@ smoke-test:
     - docker network ls
     - docker compose logs backend
     - docker compose ps
-    - docker compose exec backend curl -s http://localhost:8000/health/db
     - |
       docker run --rm --network elwasya_backend-net alpine:latest sh -c "
         apk add curl

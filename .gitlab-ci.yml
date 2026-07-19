@@ -20,11 +20,17 @@ smoke-test:
 
   script:
     - docker build -t $IMAGE_NAME:$APP_VERSION .
-    - docker-compose up -d --env-file .env $IMAGE_NAME:$APP_VERSION
+    - docker compose up -d
     - sleep 10
     - docker network ls
-    - docker logs wasya
-    - docker run --rm --network test-net alpine:latest sh -c "apk add curl && curl -s http://wasya:5000" || curl -s http://wasya:5000 || exit 1
+    - docker compose logs backend
+    - |
+      docker run --rm --network wasaya_backend-net alpine:latest sh -c "
+        apk add curl
+        curl -s http://backend:8000/health/db
+        curl -s http://backend:8000/docs
+      "
+    - docker compose logs backend || true
 
 docker-build:
   stage: docker
@@ -66,10 +72,9 @@ deploy:
 
   script:
     - |
-      scp -o StrictHostKeyChecking=no .env $EC2_USER@$EC2_HOST:/home/$EC2_USER/.env
-      
       ssh -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST "
+        cd /opt/wasya
         docker pull $IMAGE_NAME:$APP_VERSION
         docker compose down || true
-        docker compose up -d --env-file /home/$EC2_USER/.env $IMAGE_NAME:$APP_VERSION
+        docker compose up -d
       "

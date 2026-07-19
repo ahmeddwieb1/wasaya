@@ -53,6 +53,29 @@
 
 - name: check if docker run
   command: docker --version
+- name: Create app directory
+  file:
+    path: /opt/wasya
+    state: directory
+    owner: ubuntu
+    group: ubuntu
+    mode: '0755'
+
+- name: copy docker compose
+  copy:
+    src: docker-compose.yml
+    dest: /opt/wasya/docker-compose.yml
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Copy .env file to server
+  copy:
+    src: .env
+    dest: /opt/wasya/.env
+    owner: ubuntu
+    group: ubuntu
+    mode: '0600'
 
 #Nginx
 #- name: Install Nginx

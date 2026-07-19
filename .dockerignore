@@ -24,3 +24,6 @@ db.sqlite3
 .DS_Store
 Dockerfile
 docker-compose.yml
+.gitlab-ci.yml
+ansible/
+terraform/

@@ -1,9 +1,12 @@
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Depends
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
+from sqlalchemy import text
+from sqlalchemy.ext.asyncio import AsyncSession
+from app.db.session import get_db
 from app.api.v1 import api_router
 from app.scheduler.jobs import start_scheduler, stop_scheduler
 
@@ -55,3 +58,12 @@ app.include_router(api_router)
 @app.get("/health")
 async def health():
     return {"status": "ok"}
+
+@app.get("/health/db")
+async def health_db_check(db: AsyncSession = Depends(get_db)):
+    try:
+        # استخدام async مع await
+        await db.execute(text("SELECT 1"))
+        return {"status": "healthy", "database": "connected"}
+    except Exception as e:
+        return {"status": "unhealthy", "database": "error", "detail": str(e)}

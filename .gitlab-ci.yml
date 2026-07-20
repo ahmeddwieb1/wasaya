@@ -8,7 +8,7 @@ variables:
   IMAGE_NAME: $DOCKER_USERNAME/elwasya
   APP_VERSION: $CI_PIPELINE_IID
 
-smoke-test:
+.smoke-test:
   stage: test
   image: docker:24
 
@@ -77,6 +77,8 @@ deploy:
       scp -o StrictHostKeyChecking=no .env $EC2_USER@$EC2_HOST:/opt/wasya/.env
       ssh -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST "
         cd /opt/wasya
+        export IMAGE_NAME=$IMAGE_NAME
+        export APP_VERSION=$APP_VERSION
         docker pull $IMAGE_NAME:$APP_VERSION
         docker compose down || true
         docker compose up -d

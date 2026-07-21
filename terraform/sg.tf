@@ -1,5 +1,5 @@
-resource "aws_security_group" "linkin_sg" {
-  name        = "linkin_sg"
+resource "aws_security_group" "elwasaya_sg" {
+  name        = "elwasaya_sg"
   vpc_id      = aws_vpc.mainVPC.id
 
   ingress {
@@ -13,6 +13,12 @@ resource "aws_security_group" "linkin_sg" {
     to_port   = 443
     protocol  = "tcp"
     cidr_blocks = ["0.0.0.0/0"]  
+  }
+    ingress {
+    from_port = 8000
+    to_port   = 8000
+    protocol  = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
     ingress {
     from_port = 22

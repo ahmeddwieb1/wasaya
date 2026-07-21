@@ -2,7 +2,7 @@ resource "aws_instance" "my_server" {
     ami           = "ami-0b6d9d3d33ba97d99"
     instance_type = "t3.micro"
     subnet_id     = aws_subnet.public_1.id
-    security_groups = [aws_security_group.linkin_sg.id]
+    security_groups = [aws_security_group.elwasaya_sg.id]
     key_name      = "main_SSH"
 }
 resource "aws_eip" "serverIP" {

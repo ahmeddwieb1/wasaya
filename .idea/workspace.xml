@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="add nginx and ssl and domain">
-      <change beforePath="$PROJECT_DIR$/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx.conf" afterDir="false" />
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="fix 2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible/playbook1" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/playbook1" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,7 +289,23 @@
       <option name="project" value="LOCAL" />
       <updated>1785167262125</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="fix">
+      <option name="closed" value="true" />
+      <created>1785167329204</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1785167329204</updated>
+    </task>
+    <task id="LOCAL-00027" summary="fix 2">
+      <option name="closed" value="true" />
+      <created>1785167486275</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1785167486275</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -306,8 +323,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix some bug and add temp frontend" />
-    <MESSAGE value="change sending email by brevo" />
     <MESSAGE value="add Dockerfile" />
     <MESSAGE value="fix Dockerfile and add docker-compose" />
     <MESSAGE value="start deploy phase 1" />
@@ -331,6 +346,8 @@
     <MESSAGE value="fix cors" />
     <MESSAGE value="add test case to gitlab ci" />
     <MESSAGE value="add nginx and ssl and domain" />
-    <option name="LAST_COMMIT_MESSAGE" value="add nginx and ssl and domain" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="fix 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix 2" />
   </component>
 </project>

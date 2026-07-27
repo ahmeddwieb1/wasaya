@@ -6,3 +6,8 @@
   become: yes
   roles:
     - elwasaya
+  handlers:
+    - name: Restart nginx
+      service:
+        name: nginx
+        state: restarted

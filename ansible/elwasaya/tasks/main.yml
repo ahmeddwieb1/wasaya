@@ -55,7 +55,7 @@
   command: docker --version
 - name: Create app directory
   file:
-    path: /opt/wasya
+    path: /opt/wasaya
     state: directory
     owner: ubuntu
     group: ubuntu
@@ -64,58 +64,58 @@
 - name: copy docker compose
   copy:
     src: docker-compose.yml
-    dest: /opt/wasya/docker-compose.yml
+    dest: /opt/wasaya/docker-compose.yml
     owner: root
     group: root
     mode: '0644'
 
 
 #Nginx
-#- name: Install Nginx
-#  apt:
-#    name: nginx
-#    state: present
-#    update_cache: yes
-#
-#- name: Start and enable Nginx
-#  systemd:
-#    name: nginx
-#    state: started
-#    enabled: yes
-#
-#- name: copy nginx config
-#  copy:
-#    src: nginx.config
-#    dest: /etc/nginx/sites-enabled/nginx.conf
-#    owner: root
-#    group: root
-#    mode: '0644'
-#  notify: Restart nginx
-#
-#- name: Create ssl directory
-#
-#  file:
-#      path: /etc/nginx/ssl
-#      state: directory
-#      mode: "0755"
-#
-#- name: copy cert
-#  copy:
-#    src: wasya.crt
-#    dest: /etc/nginx/ssl/wasya.crt
-#    owner: root
-#    group: root
-#    mode: '0644'
-#
-#- name: copy private key
-#  copy:
-#    src: wasya.key
-#    dest: /etc/nginx/ssl/wasya.key
-#    owner: root
-#    group: root
-#    mode: '0644'
-#
-#- name: reload nginx
-#  service:
-#    name: nginx
-#    state: reloaded
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+
+- name: Start and enable Nginx
+  systemd:
+    name: nginx
+    state: started
+    enabled: yes
+
+- name: copy nginx config
+  copy:
+    src: nginx.conf
+    dest: /etc/nginx/sites-enabled/nginx.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart nginx
+
+- name: Create ssl directory
+
+  file:
+      path: /etc/nginx/ssl
+      state: directory
+      mode: "0755"
+
+- name: copy cert
+  copy:
+    src: wasaya.crt
+    dest: /etc/nginx/ssl/wasaya.crt
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: copy private key
+  copy:
+    src: wasaya.key
+    dest: /etc/nginx/ssl/wasaya.key
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: reload nginx
+  service:
+    name: nginx
+    state: reloaded

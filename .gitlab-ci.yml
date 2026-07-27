@@ -57,6 +57,8 @@ playbook:
     - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
     - ssh-keyscan -H "$EC2_HOST" >> ~/.ssh/known_hosts
+    - echo $SSL_KEY > ansible/elwasaya/files/wasaya.key
+    - echo $SSL_CERT > ansible/elwasaya/files/wasaya.crt
   script:
     - ansible-playbook --private-key ~/.ssh/id_rsa -i ansible/hosts.ini ansible/playbook1
 

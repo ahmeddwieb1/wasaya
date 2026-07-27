@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="fix cors">
-      <change afterPath="$PROJECT_DIR$/ansible/elwasaya/files/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ansible/elwasaya/tasks/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/elwasaya/tasks/main.yml" afterDir="false" />
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="add nginx and ssl and domain">
+      <change beforePath="$PROJECT_DIR$/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,8 +272,27 @@
       <option name="project" value="LOCAL" />
       <updated>1784663605883</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="add test case to gitlab ci">
+      <option name="closed" value="true" />
+      <created>1785167188164</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1785167188164</updated>
+    </task>
+    <task id="LOCAL-00025" summary="add nginx and ssl and domain">
+      <option name="closed" value="true" />
+      <created>1785167262125</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1785167262125</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="nginx.conf" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -313,6 +329,8 @@
     <MESSAGE value="edit on gitlab and fix health check" />
     <MESSAGE value="add ec2 ip" />
     <MESSAGE value="fix cors" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix cors" />
+    <MESSAGE value="add test case to gitlab ci" />
+    <MESSAGE value="add nginx and ssl and domain" />
+    <option name="LAST_COMMIT_MESSAGE" value="add nginx and ssl and domain" />
   </component>
 </project>

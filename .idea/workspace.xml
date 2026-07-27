@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="fix 5">
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="fix issuse in email">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/ec2.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/ec2.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/vpc.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/vpc.tf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -328,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785173247940</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="fix issuse in email">
+      <option name="closed" value="true" />
+      <created>1785174495080</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1785174495080</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -346,7 +357,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first edit in gitlab and ansible tasks" />
     <MESSAGE value="edit 2 in gitlab and ansible tasks and docker-compose.yml" />
     <MESSAGE value="edit 2 in gitlab and  docker-compose.yml" />
     <MESSAGE value="edit 4 docker-compose.yml" />
@@ -371,6 +381,7 @@
     <MESSAGE value="fix 3" />
     <MESSAGE value="fix 4" />
     <MESSAGE value="fix 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix 5" />
+    <MESSAGE value="fix issuse in email" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix issuse in email" />
   </component>
 </project>

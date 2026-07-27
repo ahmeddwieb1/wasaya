@@ -3,12 +3,13 @@ stages:
   - docker
   - playbook
   - deploy
+  - production_test
 
 variables:
   IMAGE_NAME: $DOCKER_USERNAME/elwasya
   APP_VERSION: $CI_PIPELINE_IID
 
-.smoke-test:
+smoke-test:
   stage: test
   image: docker:24
 
@@ -83,3 +84,13 @@ deploy:
         docker compose down || true
         docker compose up -d
       "
+
+production_test:
+  stage: production_test
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache curl
+  script:
+    - curl -s http://$EC2_HOST:8000/health/db
+    - curl -s http://$EC2_HOST:8000/health
+    - curl -s http://$EC2_HOST:8000/docs

@@ -13,6 +13,35 @@ wasaya/
 │   ├── env.py
 │   └── script.py.mako
 │
+├── ansible/
+│   ├── elwasaya/
+│   │   └── defaults/
+│   │       └── main.yml
+│   │   └──  files/
+│   │       ├── docker-compose.yml
+│   │       └── nginx.conf
+│   │   ├── handlers/
+│   │       └── main.yml
+│   │   ├── meta/
+│   │       └── main.yml
+│   │   ├── tasks/
+│   │       └── main.yml
+│   │   ├── templates/
+│   │   ├── tests/
+│   │       ├── inventory
+│   │       └── test.yml
+│   │   └── vars/
+│   │       └── main.yml
+│   ├── hosts.ini
+│   └── playbook1
+│   
+├── terraform/
+│   ├── ec2.tf
+│   ├── rtb.tf
+│   ├── sg.tf
+│   ├── vpc.tf
+│   └── cloudwatch.tf
+│   
 ├── app/
 │   ├── api/
 │   │   └── v1/

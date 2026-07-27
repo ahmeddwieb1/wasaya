@@ -40,7 +40,7 @@ class NotificationService:
 
     def send_verification_email(self, user: User, raw_token: str) -> None:
         verify_url = (
-            f"{settings.backend_base_url}/api/v1/auth/verify-email?token={raw_token}"
+            f"{settings.frontend_base_url}/api/v1/auth/verify-email?token={raw_token}"
         )
         subject = "Confirm your Wasaya account"
         body = _render_verify_email(user.full_name or user.email, verify_url)
@@ -48,7 +48,7 @@ class NotificationService:
 
     def send_checkin_email(self, user: User, raw_token: str) -> None:
         confirm_url = (
-            f"{settings.backend_base_url}/api/v1/checkin/confirm?token={raw_token}"
+            f"{settings.frontend_base_url}/api/v1/checkin/confirm?token={raw_token}"
         )
         subject = "Your Wasaya check-in"
         body = _render_checkin_email(user.full_name or user.email, confirm_url)

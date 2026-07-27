@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="fix 2">
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="fix 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ansible/playbook1" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/playbook1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -305,7 +305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785167486275</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="fix 3">
+      <option name="closed" value="true" />
+      <created>1785170692782</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1785170692782</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -323,7 +331,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add Dockerfile" />
     <MESSAGE value="fix Dockerfile and add docker-compose" />
     <MESSAGE value="start deploy phase 1" />
     <MESSAGE value="first edit in gitlab and ansible tasks" />
@@ -348,6 +355,7 @@
     <MESSAGE value="add nginx and ssl and domain" />
     <MESSAGE value="fix" />
     <MESSAGE value="fix 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix 2" />
+    <MESSAGE value="fix 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix 3" />
   </component>
 </project>

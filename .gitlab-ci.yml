@@ -20,6 +20,7 @@ smoke-test:
     - docker:dind
 
   script:
+    - docker info
     - docker build -t $IMAGE_NAME:$APP_VERSION .
     - docker images
     - docker compose up -d

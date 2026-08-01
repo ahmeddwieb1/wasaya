@@ -93,6 +93,6 @@ production_test:
   before_script:
     - apk add --no-cache curl
   script:
-    - curl -s http://wasaya.ahmeddwieb.me/health/db
-    - curl -s http://wasaya.ahmeddwieb.me/health
-    - curl -s http://wasaya.ahmeddwieb.me/docs
+    - curl -s http://api.ahmeddwieb.me/health/db
+    - curl -s http://api.ahmeddwieb.me/health
+    - curl -s http://api.ahmeddwieb.me/docs

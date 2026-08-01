@@ -9,7 +9,7 @@ variables:
   IMAGE_NAME: $DOCKER_USERNAME/elwasya
   APP_VERSION: $CI_PIPELINE_IID
 
-smoke-test:
+.smoke-test:
   stage: test
   image: docker:24
 

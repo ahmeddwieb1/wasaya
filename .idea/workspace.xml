@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="edit name domin">
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="find issuse 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -352,7 +352,23 @@
       <option name="project" value="LOCAL" />
       <updated>1785621280590</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="find issuse">
+      <option name="closed" value="true" />
+      <created>1785622562252</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1785622562252</updated>
+    </task>
+    <task id="LOCAL-00035" summary="find issuse 2">
+      <option name="closed" value="true" />
+      <created>1785622693642</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1785622693643</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -370,8 +386,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="edit 4 docker-compose.yml" />
-    <MESSAGE value="edit 5 gitlab" />
     <MESSAGE value="edit 6 gitlab" />
     <MESSAGE value="fix 7" />
     <MESSAGE value="fix 8" />
@@ -395,6 +409,8 @@
     <MESSAGE value="fix issuse in email" />
     <MESSAGE value="back to us east 1" />
     <MESSAGE value="edit name domin" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit name domin" />
+    <MESSAGE value="find issuse" />
+    <MESSAGE value="find issuse 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="find issuse 2" />
   </component>
 </project>

@@ -1,15 +1,7 @@
-#1 backend
-#depend on db (health check)
-#2 db
-# TODO
-#3 front end
-#depend on db and backend (health check)
-#4 nginx
-#5 private network and public
-#6 volume to backend and db
 services:
   backend:
     image: ${IMAGE_NAME}:${APP_VERSION}
+    restart: unless-stopped
     env_file:
       - .env
     ports:

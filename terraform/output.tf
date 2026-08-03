@@ -1,3 +1,3 @@
-output "elastic_ip" {
-    value = aws_eip.serverIP.public_ip
+output "alb_dns_name" {
+  value = aws_lb.test.dns_name
 }

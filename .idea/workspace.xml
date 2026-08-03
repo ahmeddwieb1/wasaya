@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="fix issuse in docker-compose.yml">
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="add alb and asg and output v1">
+      <change afterPath="$PROJECT_DIR$/terraform/alb+asg.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/alb.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/alb.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/asg.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/asg.tf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/terraform/ec2.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/ec2.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/output.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/output.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/plan.out" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/plan.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/rtb.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/rtb.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/sg.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/sg.tf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/terraform/vpc.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/vpc.tf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -379,7 +387,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785715117703</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="add alb and asg and output v1">
+      <option name="closed" value="true" />
+      <created>1785767587965</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1785767587965</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -397,7 +413,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix 7" />
     <MESSAGE value="fix 8" />
     <MESSAGE value="fix 9" />
     <MESSAGE value="fix 10" />
@@ -422,6 +437,7 @@
     <MESSAGE value="find issuse" />
     <MESSAGE value="find issuse 2" />
     <MESSAGE value="fix issuse in docker-compose.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix issuse in docker-compose.yml" />
+    <MESSAGE value="add alb and asg and output v1" />
+    <option name="LAST_COMMIT_MESSAGE" value="add alb and asg and output v1" />
   </component>
 </project>

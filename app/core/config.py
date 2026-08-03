@@ -35,10 +35,10 @@ class Settings(BaseSettings):
     # -----------------------------------
     # Email settings for development
     smtp_host: str = "localhost"
-    smtp_port: int = 1025
+    smtp_port: int = 587
     smtp_username: str = ""
     smtp_password: str = ""
-    smtp_use_tls: bool = False  # MailHog doesn't need TLS
+    smtp_use_tls: bool = True
     smtp_from_name: str = "Wasaya"
     smtp_from_email: str = "noreply@wasaya.local"
 

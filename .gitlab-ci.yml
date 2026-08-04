@@ -9,7 +9,7 @@ variables:
   IMAGE_NAME: $DOCKER_USERNAME/elwasya
   APP_VERSION: $CI_PIPELINE_IID
   S3_BUCKET: ahmeddwieb-wasaya-media
-
+  AWS_REGION: eu-west-1
 #todo add test stage
 
 docker-build:
@@ -27,7 +27,9 @@ docker-build:
 
 update-config:
   stage: update-config
-  image: amazon/aws-cli:latest
+  image:
+    name: amazon/aws-cli:latest
+    entrypoint: [""]
   script:
   - sed "s|__IMAGE__|${IMAGE_NAME}:${APP_VERSION}|g" docker-compose.yml > docker-compose.production.yml
   - cat docker-compose.production.yml

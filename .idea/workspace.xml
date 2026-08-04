@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="try 6 to deploy last try" />
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="try 6 to deploy last try 2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/asg.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/asg.tf" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -446,7 +449,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785860927984</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="try 6 to deploy last try 2">
+      <option name="closed" value="true" />
+      <created>1785861225646</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1785861225647</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -464,7 +475,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="edit on gitlab and fix health check" />
     <MESSAGE value="add ec2 ip" />
     <MESSAGE value="fix cors" />
     <MESSAGE value="add test case to gitlab ci" />
@@ -489,6 +499,7 @@
     <MESSAGE value="try 4 to deploy" />
     <MESSAGE value="try 5 to deploy two job work" />
     <MESSAGE value="try 6 to deploy last try" />
-    <option name="LAST_COMMIT_MESSAGE" value="try 6 to deploy last try" />
+    <MESSAGE value="try 6 to deploy last try 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="try 6 to deploy last try 2" />
   </component>
 </project>

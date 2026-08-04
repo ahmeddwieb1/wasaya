@@ -2,18 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="add alb and asg and output v1">
-      <change afterPath="$PROJECT_DIR$/terraform/alb+asg.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/terraform/alb.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/alb.tf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/terraform/asg.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/asg.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/cloudwatch.tf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/terraform/ec2.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/ec2.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/iam.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/iam.tf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/terraform/output.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/output.tf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/terraform/plan.out" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/plan.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/rtb.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/rtb.tf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/terraform/sg.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/sg.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/vpc.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/vpc.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/userdata.sh" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/userdata.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,19 +58,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.main.executor": "Run",
-    "Python.test.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHELLCHECK.PATH": "/home/dwieb/.local/share/JetBrains/PyCharm2025.3/Shell Script/shellcheck",
-    "git-widget-placeholder": "feature/high-availability",
-    "last_opened_file_path": "/home/dwieb/PycharmProjects/elwasya2/ansible/elwasaya/files"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHELLCHECK.PATH&quot;: &quot;/home/dwieb/.local/share/JetBrains/PyCharm2025.3/Shell Script/shellcheck&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/high-availability&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/dwieb/PycharmProjects/elwasya2/ansible/elwasaya/files&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/ansible/elwasaya/files" />

@@ -39,3 +39,25 @@ resource "aws_iam_role" "s3_role" {
     ]
   })
 }
+# iam.tf (إضافة)
+
+resource "aws_iam_role_policy" "rds_policy" {
+  name = "wasaya-rds-policy"
+  role = aws_iam_role.s3_role.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "rds:DescribeDBInstances",
+          "rds:ListTagsForResource"
+        ]
+        Resource = [
+          aws_db_instance.wasaya.arn
+        ]
+      }
+    ]
+  })
+}

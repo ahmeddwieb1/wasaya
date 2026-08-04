@@ -41,9 +41,10 @@ refresh_ASG:
     name: amazon/aws-cli:latest
     entrypoint: [""]
   script:
-  - aws autoscaling start-instance-refresh \
-    --auto-scaling-group-name wasaya-asg \
-    --preferences "MinHealthyPercentage=50,InstanceWarmup=300"
+  - |
+    aws autoscaling start-instance-refresh \
+      --auto-scaling-group-name wasaya-asg \
+      --preferences "MinHealthyPercentage=50,InstanceWarmup=300
 
 production_test:
   stage: production_test

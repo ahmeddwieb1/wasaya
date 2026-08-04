@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="try 4 to deploy">
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
-    </list>
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="try 5 to deploy two job work" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -432,7 +430,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785860024952</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="try 5 to deploy two job work">
+      <option name="closed" value="true" />
+      <created>1785860667917</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1785860667917</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -450,7 +456,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="edit on ansible 2" />
     <MESSAGE value="edit on ansible 2 and gitlab" />
     <MESSAGE value="edit on gitlab and fix health check" />
     <MESSAGE value="add ec2 ip" />
@@ -475,6 +480,7 @@
     <MESSAGE value="try 2 to deploy" />
     <MESSAGE value="try 3 to deploy" />
     <MESSAGE value="try 4 to deploy" />
-    <option name="LAST_COMMIT_MESSAGE" value="try 4 to deploy" />
+    <MESSAGE value="try 5 to deploy two job work" />
+    <option name="LAST_COMMIT_MESSAGE" value="try 5 to deploy two job work" />
   </component>
 </project>

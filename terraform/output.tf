@@ -1,6 +1,6 @@
-# output "alb_dns_name" {
-#   value = aws_lb.test.dns_name
-# }
+output "alb_dns_name" {
+  value = aws_lb.test.dns_name
+}
 
 output "rds_hostname" {
   description = "RDS hostname only"

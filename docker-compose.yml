@@ -7,5 +7,5 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=mysql+pymysql://root:rootpassword@wasaya-db.ctao6cyqsh8g.eu-west-1.rds.amazonaws.com:3306/wasaya
+      - DATABASE_URL=mysql+pymysql://root:rootpassword@${RDS_HOSTNAME}:3306/wasaya
       - BACKEND_BASE_URL=http://localhost:8000

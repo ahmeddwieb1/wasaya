@@ -1,6 +1,6 @@
 resource "aws_iam_role_policy" "s3_policy" {
   name = "test_policy"
-  role = aws_iam_role.s3_role.id
+  role = aws_iam_role.wasaya_role.id
 
   policy = jsonencode({
   "Version": "2012-10-17",
@@ -23,8 +23,8 @@ resource "aws_iam_role_policy" "s3_policy" {
 })
 }
 
-resource "aws_iam_role" "s3_role" {
-  name = "s3_role"
+resource "aws_iam_role" "wasaya_role" {
+  name = "wasaya_role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -39,11 +39,10 @@ resource "aws_iam_role" "s3_role" {
     ]
   })
 }
-# iam.tf (إضافة)
 
 resource "aws_iam_role_policy" "rds_policy" {
   name = "wasaya-rds-policy"
-  role = aws_iam_role.s3_role.id
+  role = aws_iam_role.wasaya_role.id
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -60,4 +59,23 @@ resource "aws_iam_role_policy" "rds_policy" {
       }
     ]
   })
+}
+resource "aws_iam_role_policy" "secretsmanager_policy" {
+  name = "wasaya-secretsmanager-policy"
+  role = aws_iam_role.wasaya_role.id
+
+  policy = jsonencode({
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Statement1",
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:GetSecretValue"
+      ],
+      "Resource": "*"
+    #   arn:aws:secretsmanager:eu-west-1:240676009387:secret:wasaya-prod-AhPclM
+    }
+  ]
+})
 }

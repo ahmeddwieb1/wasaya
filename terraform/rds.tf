@@ -23,6 +23,7 @@ resource "aws_db_instance" "wasaya" {
   db_subnet_group_name   = aws_db_subnet_group.wasaya.name
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
 
+  skip_final_snapshot    = true
 
   lifecycle {
     prevent_destroy = false

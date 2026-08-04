@@ -20,9 +20,10 @@ docker-build:
     - docker:dind
 
   script:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t $IMAGE_NAME:$APP_VERSION .
-  - docker push $IMAGE_NAME:$APP_VERSION
+     - echo "username:" $DOCKER_USERNAME "password:" $DOCKER_PASSWORD
+     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+     - docker build -t $IMAGE_NAME:$APP_VERSION .
+     - docker push $IMAGE_NAME:$APP_VERSION
 
 update-config:
   stage: update-config

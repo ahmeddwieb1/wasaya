@@ -44,7 +44,7 @@ refresh_ASG:
   - |
     aws autoscaling start-instance-refresh \
       --auto-scaling-group-name wasaya-asg \
-      --preferences "MinHealthyPercentage=50,InstanceWarmup=300
+      --preferences "MinHealthyPercentage=50,InstanceWarmup=300"
 
 production_test:
   stage: production_test

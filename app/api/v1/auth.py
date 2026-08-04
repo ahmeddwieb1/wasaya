@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, Query, Response, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from datetime import datetime, timedelta, timezone
+from fastapi.responses import RedirectResponse
 
 from app.core.config import get_settings
 from app.core.dependencies import get_current_user
@@ -70,9 +71,12 @@ async def me(current_user: User = Depends(get_current_user)):
 
 @router.get("/verify-email", response_model=UserResponse)
 async def verify_email(
-    token: str = Query(...),
+  token: str,
     db: AsyncSession = Depends(get_db),
 ):
     service = AuthService(db)
-    user = await service.verify_email(token)
-    return user
+    await service.verify_email(token)
+
+    return RedirectResponse(
+        url=f"{settings.frontend_base_url}/verify-success"
+    )

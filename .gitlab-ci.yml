@@ -1,40 +1,16 @@
 stages:
   - test
   - docker
-  - playbook
+  - update-config
   - deploy
   - production_test
 
 variables:
   IMAGE_NAME: $DOCKER_USERNAME/elwasya
   APP_VERSION: $CI_PIPELINE_IID
+  S3_BUCKET: ahmeddwieb-wasaya-media
 
-.smoke-test:
-  stage: test
-  image: docker:24
-
-  before_script:
-    - apk add --no-cache curl
-    - env | grep -E '^(SECRET_KEY|SMTP_FROM_EMAIL|SMTP_FROM_NAME|SMTP_HOST|SMTP_PASSWORD|SMTP_PORT|SMTP_USERNAME|SMTP_USE_TLS|SMTP_PORT)' >> .env
-  services:
-    - docker:dind
-
-  script:
-    - docker info
-    - docker build -t $IMAGE_NAME:$APP_VERSION .
-    - docker images
-    - docker compose up -d
-    - sleep 20
-    - docker network ls
-    - docker compose logs backend
-    - docker compose ps
-    - |
-      docker run --rm --network elwasya_backend-net alpine:latest sh -c "
-        apk add curl
-        curl -s http://backend:8000/health/db
-        curl -s http://backend:8000/docs
-      "
-    - docker compose logs backend || true
+#todo add test stage
 
 docker-build:
   stage: docker
@@ -44,49 +20,25 @@ docker-build:
     - docker:dind
 
   script:
-    - echo "username:" $DOCKER_USERNAME "password:" $DOCKER_PASSWORD     
     - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
     - docker build -t $IMAGE_NAME:$APP_VERSION .
     - docker push $IMAGE_NAME:$APP_VERSION
 
-playbook:
-  stage: playbook
-  image: alpine:latest
-  before_script:
-    - apk add --no-cache openssh-client ansible
-    - mkdir -p ~/.ssh
-    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-    - chmod 600 ~/.ssh/id_rsa
-    - ssh-keyscan -H "$EC2_HOST" >> ~/.ssh/known_hosts
-    - cat "$SSL_KEY" > ansible/elwasaya/files/wasaya.key
-    - cat "$SSL_CERT" > ansible/elwasaya/files/wasaya.crt
+update-config:
+  stage: update-config
+  image: amazon/aws-cli:latest
   script:
-    - ansible-playbook --private-key ~/.ssh/id_rsa -i ansible/hosts.ini ansible/playbook1
+  - sed "s|__IMAGE__|${IMAGE_NAME}:${APP_VERSION}|g" docker-compose.yml > docker-compose.production.yml
+  - cat docker-compose.production.yml
+  - aws s3 cp docker-compose.production.yml "s3://${S3_BUCKET}/docker-compose.yml"
 
-deploy:
+refresh_ASG:
   stage: deploy
-  image: alpine:latest
-
-  before_script:
-    - apk add --no-cache openssh-client
-    - mkdir -p ~/.ssh
-    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-    - chmod 600 ~/.ssh/id_rsa
-    - echo $EC2_USER-$EC2_HOST  
-    - echo $IMAGE_NAME:$APP_VERSION
-    - env | grep -E '^(SECRET_KEY|SMTP_FROM_EMAIL|SMTP_FROM_NAME|SMTP_HOST|SMTP_PASSWORD|SMTP_PORT|SMTP_USERNAME|SMTP_USE_TLS)' >> .env
-
+  image: amazon/aws-cli:latest
   script:
-    - |
-      scp -o StrictHostKeyChecking=no .env $EC2_USER@$EC2_HOST:/opt/wasaya/.env
-      ssh -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST "
-        cd /opt/wasaya
-        export IMAGE_NAME=$IMAGE_NAME
-        export APP_VERSION=$APP_VERSION
-        docker pull $IMAGE_NAME:$APP_VERSION
-        docker compose down || true
-        docker compose up -d
-      "
+  - aws autoscaling start-instance-refresh \
+    --auto-scaling-group-name wasaya-asg \
+    --preferences "MinHealthyPercentage=50,InstanceWarmup=300"
 
 production_test:
   stage: production_test
@@ -94,6 +46,6 @@ production_test:
   before_script:
     - apk add --no-cache curl
   script:
-    - curl -s http://api.ahmeddwieb.me/health/db
-    - curl -s http://api.ahmeddwieb.me/health
-    - curl -s http://api.ahmeddwieb.me/docs
+    - curl -fail http://api.ahmeddwieb.me/health/db
+    - curl -fail http://api.ahmeddwieb.me/health
+    - curl -fail http://api.ahmeddwieb.me/docs

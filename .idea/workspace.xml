@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="v2 after add rds and alb and asg">
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="try 1 to deploy">
       <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -402,7 +400,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785855998963</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="try 1 to deploy">
+      <option name="closed" value="true" />
+      <created>1785858733768</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1785858733768</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -420,7 +426,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix 10" />
     <MESSAGE value="fix 11" />
     <MESSAGE value="fix 12" />
     <MESSAGE value="edit on ansible" />
@@ -445,6 +450,7 @@
     <MESSAGE value="add alb and asg and output v1" />
     <MESSAGE value="v1 after add rds it work very good" />
     <MESSAGE value="v2 after add rds and alb and asg" />
-    <option name="LAST_COMMIT_MESSAGE" value="v2 after add rds and alb and asg" />
+    <MESSAGE value="try 1 to deploy" />
+    <option name="LAST_COMMIT_MESSAGE" value="try 1 to deploy" />
   </component>
 </project>

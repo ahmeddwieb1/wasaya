@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="try 3 to deploy">
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="try 4 to deploy">
       <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -425,7 +424,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785859151485</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="try 4 to deploy">
+      <option name="closed" value="true" />
+      <created>1785860024952</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1785860024952</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -443,7 +450,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="edit on ansible" />
     <MESSAGE value="edit on ansible 2" />
     <MESSAGE value="edit on ansible 2 and gitlab" />
     <MESSAGE value="edit on gitlab and fix health check" />
@@ -468,6 +474,7 @@
     <MESSAGE value="try 1 to deploy" />
     <MESSAGE value="try 2 to deploy" />
     <MESSAGE value="try 3 to deploy" />
-    <option name="LAST_COMMIT_MESSAGE" value="try 3 to deploy" />
+    <MESSAGE value="try 4 to deploy" />
+    <option name="LAST_COMMIT_MESSAGE" value="try 4 to deploy" />
   </component>
 </project>

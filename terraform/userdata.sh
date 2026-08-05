@@ -37,6 +37,7 @@ SECRET_JSON=$(aws secretsmanager get-secret-value \
 echo "$SECRET_JSON" | jq -r 'to_entries[] | "\(.key)=\(.value)"' > /opt/wasaya/.env
 
 echo "DATABASE_URL=mysql+pymysql://root:rootpassword@${RDS_HOSTNAME}:3306/wasaya" >> /opt/wasaya/.env
+echo "BACKEND_BASE_URL=http://api.ahmeddwieb.me" >> /opt/wasaya/.env
 
 cd /opt/wasaya
 docker compose pull

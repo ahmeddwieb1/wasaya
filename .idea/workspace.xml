@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="Merge branch 'feature/high-availability'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="fix path">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/userdata.sh" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/userdata.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -377,7 +376,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785715117703</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="fix path">
+      <option name="closed" value="true" />
+      <created>1785941842168</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1785941842168</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -395,7 +402,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix 7" />
     <MESSAGE value="fix 8" />
     <MESSAGE value="fix 9" />
     <MESSAGE value="fix 10" />
@@ -420,6 +426,7 @@
     <MESSAGE value="find issuse" />
     <MESSAGE value="find issuse 2" />
     <MESSAGE value="fix issuse in docker-compose.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix issuse in docker-compose.yml" />
+    <MESSAGE value="fix path" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix path" />
   </component>
 </project>

@@ -42,3 +42,7 @@ terraform-provider-*
 
 *.key
 *.crt
+
+workspace.xml
+
+docs/

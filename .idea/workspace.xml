@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="fix path">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/rds.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/rds.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/s3.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/s3.tf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +60,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHELLCHECK.PATH": "/home/dwieb/.local/share/JetBrains/PyCharm2025.3/Shell Script/shellcheck",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/dwieb/PycharmProjects/elwasya2/ansible/elwasaya/files"
+    "last_opened_file_path": "/home/dwieb/PycharmProjects/retail-data-generator"
   }
 }]]></component>
   <component name="RecentsManager">

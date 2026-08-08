@@ -51,6 +51,7 @@ production_test:
   before_script:
     - apk add --no-cache curl
   script:
+    - sleep 250
     - curl -fail http://api.ahmeddwieb.me/health/db
     - curl -fail http://api.ahmeddwieb.me/health
     - curl -fail http://api.ahmeddwieb.me/docs

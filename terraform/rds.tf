@@ -7,7 +7,7 @@ resource "aws_db_instance" "wasaya" {
   identifier = "wasaya-db"
 
   engine         = "mysql"
-  engine_version = "8.0"
+  engine_version = "8.4"
   instance_class = "db.t3.micro"
 
   allocated_storage     = 20

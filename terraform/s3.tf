@@ -1,5 +1,6 @@
 resource "aws_s3_bucket" "wasaya_media" {
-  bucket = "ahmeddwieb-wasaya-media"
+    bucket = "ahmeddwieb-wasaya-media"
+    force_destroy = true
 }
 
 resource "aws_s3_bucket_public_access_block" "wasaya_media" {

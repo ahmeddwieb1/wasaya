@@ -15,33 +15,38 @@ wasaya/
 │
 ├── ansible/
 │   ├── elwasaya/
-│   │   └── defaults/
-│   │       └── main.yml
-│   │   └──  files/
-│   │       ├── docker-compose.yml
-│   │       └── nginx.conf
+│   │   ├── defaults/
+│   │   │   └── main.yml
+│   │   ├── files/
+│   │   │   ├── docker-compose.yml
+│   │   │   └── nginx.conf
 │   │   ├── handlers/
-│   │       └── main.yml
+│   │   │   └── main.yml
 │   │   ├── meta/
-│   │       └── main.yml
+│   │   │   └── main.yml
 │   │   ├── tasks/
-│   │       └── main.yml
+│   │   │   └── main.yml
 │   │   ├── templates/
 │   │   ├── tests/
-│   │       ├── inventory
-│   │       └── test.yml
+│   │   │   ├── inventory
+│   │   │   └── test.yml
 │   │   └── vars/
 │   │       └── main.yml
 │   ├── hosts.ini
 │   └── playbook1
-│   
+│
 ├── terraform/
+│   ├── alb.tf
+│   ├── asg.tf
+│   ├── iam.tf
+│   ├── output.tf
+│   ├── rds.tf
+│   ├── s3.tf
 │   ├── ec2.tf
 │   ├── rtb.tf
 │   ├── sg.tf
-│   ├── vpc.tf
-│   └── cloudwatch.tf
-│   
+│   └── vpc.tf
+│
 ├── app/
 │   ├── api/
 │   │   └── v1/

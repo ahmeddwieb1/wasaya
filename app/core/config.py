@@ -22,8 +22,8 @@ class Settings(BaseSettings):
     access_token_expire_minutes: int = 1440
 
     # Cookie
-    cookie_secure: bool = False
-    cookie_samesite: str = "lax"
+    cookie_secure: bool = True
+    cookie_samesite: str = "none"
 
     # SMTP
     # smtp_host: str

@@ -31,7 +31,6 @@ update-config:
     entrypoint: [""]
   script:
   - sed "s|__IMAGE__|${IMAGE_NAME}:${APP_VERSION}|g" docker-compose.yml > docker-compose.production.yml
-  - cat docker-compose.production.yml
   - aws s3 cp docker-compose.production.yml "s3://${S3_BUCKET}/docker-compose.yml"
 
 refresh_ASG:
@@ -51,7 +50,7 @@ production_test:
   before_script:
     - apk add --no-cache curl
   script:
-    - sleep 250
+    - sleep 300
     - curl -fail http://api.ahmeddwieb.me/health/db
     - curl -fail http://api.ahmeddwieb.me/health
     - curl -fail http://api.ahmeddwieb.me/docs

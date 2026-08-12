@@ -32,30 +32,24 @@ update-config:
     name: amazon/aws-cli:latest
     entrypoint: [""]
   script:
-  - aws s3 cp docker-compose.prod.yml "s3://${S3_BUCKET}/docker-compose.yml"
+    - aws s3 cp docker-compose.prod.yml "s3://${S3_BUCKET}/docker-compose.yml"
 
-refresh_ASG:
+deploy:
   stage: deploy
   image: amazon/aws-cli:latest
   script:
-        - |
-          aws autoscaling describe-auto-scaling-groups \
-            --auto-scaling-group-names wasaya-asg \
-            --query 'AutoScalingGroups[0].Instances[].InstanceId' \
-            --output text > instance_ids.txt
-
-        - cat instance_ids.txt
-
-        - |
-          aws ssm send-command \
-            --instance-ids $(cat instance_ids.txt) \
-            --document-name "AWS-RunShellScript" \
-            --parameters 'commands=[
-              "cd /opt/wasaya",
-              "docker compose pull backend",
-              "docker compose up -d backend"
-            ]' \
-            --region "$AWS_REGION"
+    - |
+      aws autoscaling describe-auto-scaling-groups \
+        --auto-scaling-group-names wasaya-asg \
+        --query 'AutoScalingGroups[0].Instances[].InstanceId' \
+        --output text > instance_ids.txt
+    - cat instance_ids.txt
+    - |
+      aws ssm send-command \
+        --instance-ids $(cat instance_ids.txt) \
+        --document-name "AWS-RunShellScript" \
+        --parameters commands=["cd /opt/wasaya && docker compose pull backend && docker compose up -d backend"] \
+        --region "$AWS_REGION"
 production_test:
   stage: production_test
   image: alpine:latest

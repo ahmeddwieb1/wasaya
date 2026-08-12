@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="improve gitlab and docker compose to make intgration good with frontend">
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="fix 2">
       <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -416,7 +416,23 @@
       <option name="project" value="LOCAL" />
       <updated>1786522782990</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="fix 1">
+      <option name="closed" value="true" />
+      <created>1786523244756</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1786523244756</updated>
+    </task>
+    <task id="LOCAL-00043" summary="fix 2">
+      <option name="closed" value="true" />
+      <created>1786523373802</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1786523373802</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -434,7 +450,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix 12" />
     <MESSAGE value="edit on ansible" />
     <MESSAGE value="edit on ansible 2" />
     <MESSAGE value="edit on ansible 2 and gitlab" />
@@ -444,7 +459,6 @@
     <MESSAGE value="add test case to gitlab ci" />
     <MESSAGE value="add nginx and ssl and domain" />
     <MESSAGE value="fix" />
-    <MESSAGE value="fix 2" />
     <MESSAGE value="fix 3" />
     <MESSAGE value="fix 4" />
     <MESSAGE value="fix 5" />
@@ -459,6 +473,8 @@
     <MESSAGE value="update readme" />
     <MESSAGE value="fix issue in frontend" />
     <MESSAGE value="improve gitlab and docker compose to make intgration good with frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="improve gitlab and docker compose to make intgration good with frontend" />
+    <MESSAGE value="fix 1" />
+    <MESSAGE value="fix 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix 2" />
   </component>
 </project>

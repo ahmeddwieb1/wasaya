@@ -1,7 +1,7 @@
 
 resource "aws_autoscaling_group" "example" {
   vpc_zone_identifier = [aws_subnet.public_1.id, aws_subnet.public_2.id]
-  target_group_arns   = [aws_lb_target_group.wasaya_tg.arn]
+  target_group_arns   = [aws_lb_target_group.backend_tg.arn,aws_lb_target_group.frontend_tg.arn]
   name = "wasaya-asg"
 
   launch_template {

@@ -7,8 +7,8 @@ resource "aws_lb" "test" {
 
 
   }
-resource "aws_lb_target_group" "wasaya_tg" {
-  name     = "tg"
+resource "aws_lb_target_group" "backend_tg" {
+  name     = "wasaya-backend-tg"
   port     = 8000
   protocol = "HTTP"
   vpc_id   = aws_vpc.mainVPC.id
@@ -22,7 +22,21 @@ resource "aws_lb_target_group" "wasaya_tg" {
     unhealthy_threshold = 2
   }
 }
-
+resource "aws_lb_target_group" "frontend_tg" {
+  name     = "wasaya-frontend-tg"
+  port     = 3000
+  protocol = "HTTP"
+  vpc_id   = aws_vpc.mainVPC.id
+  health_check {
+    path                = "/"
+    port = 3000
+    protocol = "HTTP"
+    interval            = 30
+    timeout             = 5
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+  }
+}
 resource "aws_lb_listener" "http" {
   load_balancer_arn = aws_lb.test.arn
   port              = "80"
@@ -30,6 +44,36 @@ resource "aws_lb_listener" "http" {
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.wasaya_tg.arn
+    target_group_arn = aws_lb_target_group.frontend_tg.arn
+  }
+}
+resource "aws_lb_listener_rule" "backend" {
+  listener_arn = aws_lb_listener.http.arn
+  priority     = 10
+
+  condition {
+    host_header {
+      values = ["api.ahmeddwieb.me"]
+    }
+  }
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.backend_tg.arn
+  }
+}
+resource "aws_lb_listener_rule" "frontend" {
+  listener_arn = aws_lb_listener.http.arn
+  priority     = 20
+
+  condition {
+    host_header {
+      values = ["wasaya.ahmeddwieb.me"]
+    }
+  }
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.frontend_tg.arn
   }
 }

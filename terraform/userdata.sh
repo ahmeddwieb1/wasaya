@@ -27,7 +27,7 @@ rm -rf awscliv2.zip aws
 
 # Download and run compose
 mkdir -p /opt/wasaya
-aws s3 cp s3://ahmeddwieb-wasaya-media/docker-compose.prod.yml /opt/wasaya/docker-compose.yml
+aws s3 cp s3://ahmeddwieb-wasaya-media/docker-compose.yml /opt/wasaya/docker-compose.yml
 
 #export secret from secret manager
 SECRET_JSON=$(aws secretsmanager get-secret-value \

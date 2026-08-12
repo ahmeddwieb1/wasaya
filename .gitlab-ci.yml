@@ -23,7 +23,7 @@ docker-build:
     - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
     - docker build -t $IMAGE_NAME:$APP_VERSION .
     - docker push $IMAGE_NAME:$APP_VERSION
-      - docker tag "$IMAGE_NAME:$APP_VERSION" "$IMAGE_NAME:latest"
+    - docker tag "$IMAGE_NAME:$APP_VERSION" "$IMAGE_NAME:latest"
     - docker push "$IMAGE_NAME:latest"
     
 update-config:

@@ -48,7 +48,7 @@ deploy:
       aws ssm send-command \
         --instance-ids $(cat instance_ids.txt) \
         --document-name "AWS-RunShellScript" \
-        --parameters commands=["cd /opt/wasaya && docker compose pull backend && docker compose up -d backend"] \
+        --parameters '{"commands":["cd /opt/wasaya && docker compose pull backend && docker compose up -d backend"]}' \
         --region "$AWS_REGION"
 production_test:
   stage: production_test

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="fix 2">
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="fix 6">
+      <change beforePath="$PROJECT_DIR$/terraform/userdata.sh" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/userdata.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -432,7 +432,39 @@
       <option name="project" value="LOCAL" />
       <updated>1786523373802</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="fix 3">
+      <option name="closed" value="true" />
+      <created>1786524064749</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1786524064749</updated>
+    </task>
+    <task id="LOCAL-00045" summary="fix 4">
+      <option name="closed" value="true" />
+      <created>1786524398767</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1786524398767</updated>
+    </task>
+    <task id="LOCAL-00046" summary="fix 5">
+      <option name="closed" value="true" />
+      <created>1786524760134</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1786524760134</updated>
+    </task>
+    <task id="LOCAL-00047" summary="fix 6">
+      <option name="closed" value="true" />
+      <created>1786525093010</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1786525093010</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -450,7 +482,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="edit on ansible" />
     <MESSAGE value="edit on ansible 2" />
     <MESSAGE value="edit on ansible 2 and gitlab" />
     <MESSAGE value="edit on gitlab and fix health check" />
@@ -459,9 +490,6 @@
     <MESSAGE value="add test case to gitlab ci" />
     <MESSAGE value="add nginx and ssl and domain" />
     <MESSAGE value="fix" />
-    <MESSAGE value="fix 3" />
-    <MESSAGE value="fix 4" />
-    <MESSAGE value="fix 5" />
     <MESSAGE value="fix issuse in email" />
     <MESSAGE value="back to us east 1" />
     <MESSAGE value="edit name domin" />
@@ -475,6 +503,10 @@
     <MESSAGE value="improve gitlab and docker compose to make intgration good with frontend" />
     <MESSAGE value="fix 1" />
     <MESSAGE value="fix 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix 2" />
+    <MESSAGE value="fix 3" />
+    <MESSAGE value="fix 4" />
+    <MESSAGE value="fix 5" />
+    <MESSAGE value="fix 6" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix 6" />
   </component>
 </project>

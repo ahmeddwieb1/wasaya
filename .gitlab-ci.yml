@@ -36,9 +36,8 @@ update-config:
 
 refresh_ASG:
   stage: deploy
-  image:
-    name: amazon/aws-cli:latest
-    script:
+  image: amazon/aws-cli:latest
+  script:
         - |
           aws autoscaling describe-auto-scaling-groups \
             --auto-scaling-group-names wasaya-asg \

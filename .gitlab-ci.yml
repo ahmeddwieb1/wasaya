@@ -23,27 +23,40 @@ docker-build:
     - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
     - docker build -t $IMAGE_NAME:$APP_VERSION .
     - docker push $IMAGE_NAME:$APP_VERSION
-
+      - docker tag "$IMAGE_NAME:$APP_VERSION" "$IMAGE_NAME:latest"
+    - docker push "$IMAGE_NAME:latest"
+    
 update-config:
   stage: update-config
   image:
     name: amazon/aws-cli:latest
     entrypoint: [""]
   script:
-  - sed "s|__IMAGE__|${IMAGE_NAME}:${APP_VERSION}|g" docker-compose.yml > docker-compose.production.yml
-  - aws s3 cp docker-compose.production.yml "s3://${S3_BUCKET}/docker-compose.yml"
+  - aws s3 cp docker-compose.prod.yml "s3://${S3_BUCKET}/docker-compose.yml"
 
 refresh_ASG:
   stage: deploy
   image:
     name: amazon/aws-cli:latest
-    entrypoint: [""]
-  script:
-  - |
-    aws autoscaling start-instance-refresh \
-      --auto-scaling-group-name wasaya-asg \
-      --preferences "MinHealthyPercentage=50,InstanceWarmup=300"
+    script:
+        - |
+          aws autoscaling describe-auto-scaling-groups \
+            --auto-scaling-group-names wasaya-asg \
+            --query 'AutoScalingGroups[0].Instances[].InstanceId' \
+            --output text > instance_ids.txt
 
+        - cat instance_ids.txt
+
+        - |
+          aws ssm send-command \
+            --instance-ids $(cat instance_ids.txt) \
+            --document-name "AWS-RunShellScript" \
+            --parameters 'commands=[
+              "cd /opt/wasaya",
+              "docker compose pull backend",
+              "docker compose up -d backend"
+            ]' \
+            --region "$AWS_REGION"
 production_test:
   stage: production_test
   image: alpine:latest

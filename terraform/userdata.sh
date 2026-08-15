@@ -27,7 +27,7 @@ rm -rf awscliv2.zip aws
 
 # Download and run compose
 mkdir -p /opt/wasaya
-aws s3 cp s3://ahmeddwieb-wasaya-media/docker-compose.yml /opt/wasaya/docker-compose.yml
+
 
 #export secret from secret manager
 SECRET_JSON=$(aws secretsmanager get-secret-value \
@@ -38,6 +38,8 @@ echo "$SECRET_JSON" | jq -r 'to_entries[] | "\(.key)=\(.value)"' > /opt/wasaya/.
 
 echo "DATABASE_URL=mysql+pymysql://root:rootpassword@${RDS_HOSTNAME}:3306/wasaya" >> /opt/wasaya/.env
 echo "BACKEND_BASE_URL=http://api.ahmeddwieb.me" >> /opt/wasaya/.env
+
+aws s3 cp s3://ahmeddwieb-wasaya-media/docker-compose.yml /opt/wasaya/docker-compose.yml
 
 cd /opt/wasaya
 docker compose pull

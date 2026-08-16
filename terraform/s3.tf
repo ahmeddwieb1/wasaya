@@ -18,7 +18,7 @@ resource "aws_s3_bucket_cors_configuration" "wasaya_media" {
   cors_rule {
     allowed_headers = ["*"]
     allowed_methods = ["PUT", "GET", "DELETE"]
-    allowed_origins = ["http://localhost:3000"]
+    allowed_origins = ["http://localhost:3000","https://wasaya.ahmeddwieb.me"]
     expose_headers  = ["ETag"]
     max_age_seconds = 3000
   }

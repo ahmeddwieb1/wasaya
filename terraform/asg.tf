@@ -9,9 +9,9 @@ resource "aws_autoscaling_group" "example" {
     version = "$Latest"
   }
 
-  min_size         = 2
+  min_size         = 1
   max_size         = 4
-  desired_capacity = 2
+  desired_capacity = 1
 
   lifecycle {
     ignore_changes = [desired_capacity]

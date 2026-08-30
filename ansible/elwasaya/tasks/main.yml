@@ -120,20 +120,36 @@
     name: nginx
     state: reloaded
 
-#sudo fallocate -l 1G /swapfile
-#ubuntu@ip-10-0-1-220:/opt/wasaya$ sudo chmod 600 /swapfile
-#ubuntu@ip-10-0-1-220:/opt/wasaya$ sudo mkswap /swapfile
-#Setting up swapspace version 1, size = 1024 MiB (1073737728 bytes)
-#no label, UUID=1bc8b7c2-b1b3-4dca-ab35-e6b033e379f1
-#ubuntu@ip-10-0-1-220:/opt/wasaya$ sudo swapon /swapfile
-#ubuntu@ip-10-0-1-220:/opt/wasaya$ free -h
-#               total        used        free      shared  buff/cache   available
-#Mem:           908Mi       825Mi        57Mi       2.8Mi       135Mi        83Mi
-#Swap:          1.0Gi        57Mi       966Mi
-#ubuntu@ip-10-0-1-220:/opt/wasaya$ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
-#/swapfile none swap sw 0 0
-#ubuntu@ip-10-0-1-220:/opt/wasaya$ cat /etc/fstab
-#LABEL=cloudimg-rootfs	/	 ext4	discard,commit=30,errors=remount-ro	0 1
-#LABEL=BOOT	/boot	ext4	defaults	0 2
-#LABEL=UEFI	/boot/efi	vfat	umask=0077	0 1
-#/swapfile none swap sw 0 0
+- name: Check if swap file exists
+  stat:
+    path: /swapfile
+  register: swapfile
+
+- name: Create swap file
+  command: fallocate -l 1G /swapfile
+  when: not swapfile.stat.exists
+
+- name: Set swap file permissions
+  file:
+    path: /swapfile
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: Format swap file
+  command: mkswap /swapfile
+  when: not swapfile.stat.exists
+
+- name: Enable swap
+  command: swapon /swapfile
+  when: ansible_swaptotal_mb == 0
+
+- name: Persist swap in fstab
+  mount:
+    path: none
+    src: /swapfile
+    fstype: swap
+    opts: sw
+    dump: '0'
+    passno: '0'
+    state: present

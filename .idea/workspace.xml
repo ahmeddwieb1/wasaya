@@ -2,7 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="update frontend url">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible/elwasaya/files/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/elwasaya/files/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible/elwasaya/files/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/elwasaya/files/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible/elwasaya/tasks/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/elwasaya/tasks/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible/hosts.ini" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/hosts.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/.terraform.lock.hcl" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/prod/.terraform.lock.hcl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/alb+asg.png" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/prod/alb+asg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/alb.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/prod/alb.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/asg.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/prod/asg.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/ec2.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/prod/ec2.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/iam.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/prod/iam.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/output.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/prod/output.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/plan.out" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/prod/plan.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/rds.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/prod/rds.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/rtb.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/prod/rtb.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/s3.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/prod/s3.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/sg.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/prod/sg.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/userdata.sh" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/prod/userdata.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/v1.png" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/prod/v1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/vpc.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/prod/vpc.tf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,19 +73,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHELLCHECK.PATH&quot;: &quot;/home/dwieb/.local/share/JetBrains/PyCharm2025.3/Shell Script/shellcheck&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev/frontend2&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/dwieb/PycharmProjects/retail-data-generator&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.main.executor": "Run",
+    "Python.test.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHELLCHECK.PATH": "/home/dwieb/.local/share/JetBrains/PyCharm2025.3/Shell Script/shellcheck",
+    "git-widget-placeholder": "feature/terraform-dev",
+    "last_opened_file_path": "/home/dwieb/PycharmProjects/retail-data-generator"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/ansible/elwasaya/files" />
@@ -74,6 +94,7 @@
       <recent name="$PROJECT_DIR$/app/core" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/terraform/prod" />
       <recent name="$PROJECT_DIR$/ansible" />
       <recent name="$PROJECT_DIR$/alembic" />
     </key>

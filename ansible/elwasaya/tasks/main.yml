@@ -71,54 +71,54 @@
 
 
 #Nginx
-- name: Install Nginx
-  apt:
-    name: nginx
-    state: present
-    update_cache: yes
-
-- name: Start and enable Nginx
-  systemd:
-    name: nginx
-    state: started
-    enabled: yes
-
-- name: copy nginx config
-  copy:
-    src: nginx.conf
-    dest: /etc/nginx/sites-enabled/nginx.conf
-    owner: root
-    group: root
-    mode: '0644'
-  notify: Restart nginx
-
-- name: Create ssl directory
-
-  file:
-      path: /etc/nginx/ssl
-      state: directory
-      mode: "0755"
-
-- name: copy cert
-  copy:
-    src: wasaya.crt
-    dest: /etc/nginx/ssl/wasaya.crt
-    owner: root
-    group: root
-    mode: '0644'
-
-- name: copy private key
-  copy:
-    src: wasaya.key
-    dest: /etc/nginx/ssl/wasaya.key
-    owner: root
-    group: root
-    mode: '0644'
-
-- name: reload nginx
-  service:
-    name: nginx
-    state: reloaded
+#- name: Install Nginx
+#  apt:
+#    name: nginx
+#    state: present
+#    update_cache: yes
+#
+#- name: Start and enable Nginx
+#  systemd:
+#    name: nginx
+#    state: started
+#    enabled: yes
+#
+#- name: copy nginx config
+#  copy:
+#    src: nginx.conf
+#    dest: /etc/nginx/sites-enabled/nginx.conf
+#    owner: root
+#    group: root
+#    mode: '0644'
+#  notify: Restart nginx
+#
+#- name: Create ssl directory
+#
+#  file:
+#      path: /etc/nginx/ssl
+#      state: directory
+#      mode: "0755"
+#
+#- name: copy cert
+#  copy:
+#    src: wasaya.crt
+#    dest: /etc/nginx/ssl/wasaya.crt
+#    owner: root
+#    group: root
+#    mode: '0644'
+#
+#- name: copy private key
+#  copy:
+#    src: wasaya.key
+#    dest: /etc/nginx/ssl/wasaya.key
+#    owner: root
+#    group: root
+#    mode: '0644'
+#
+#- name: reload nginx
+#  service:
+#    name: nginx
+#    state: reloaded
 
 - name: Check if swap file exists
   stat:

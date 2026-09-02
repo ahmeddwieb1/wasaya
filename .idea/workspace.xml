@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="edit deployment pipeline">
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="edit deployment pipeline v2">
+      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,14 +94,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778432377676</updated>
-    </task>
-    <task id="LOCAL-00003" summary="add Dockerfile">
-      <option name="closed" value="true" />
-      <created>1780993398958</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1780993398958</updated>
     </task>
     <task id="LOCAL-00004" summary="fix Dockerfile and add docker-compose">
       <option name="closed" value="true" />
@@ -486,7 +479,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788372815913</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="edit deployment pipeline v2">
+      <option name="closed" value="true" />
+      <created>1788373541631</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1788373541631</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -504,7 +505,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix cors" />
     <MESSAGE value="add test case to gitlab ci" />
     <MESSAGE value="add nginx and ssl and domain" />
     <MESSAGE value="fix" />
@@ -529,6 +529,7 @@
     <MESSAGE value="edit in infa" />
     <MESSAGE value="add dev stage without gitlab" />
     <MESSAGE value="edit deployment pipeline" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit deployment pipeline" />
+    <MESSAGE value="edit deployment pipeline v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit deployment pipeline v2" />
   </component>
 </project>

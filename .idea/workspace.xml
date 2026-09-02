@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="add dev stage without gitlab">
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="edit deployment pipeline">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ansible/elwasaya/files/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/elwasaya/files/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ansible/elwasaya/files/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/elwasaya/files/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ansible/elwasaya/tasks/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/elwasaya/tasks/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ansible/hosts.ini" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/hosts.ini" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,14 +93,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778432377676</updated>
-    </task>
-    <task id="LOCAL-00002" summary="change sending email by brevo">
-      <option name="closed" value="true" />
-      <created>1780992942010</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1780992942010</updated>
     </task>
     <task id="LOCAL-00003" summary="add Dockerfile">
       <option name="closed" value="true" />
@@ -491,7 +478,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788130820917</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="edit deployment pipeline">
+      <option name="closed" value="true" />
+      <created>1788372815898</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1788372815913</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -509,7 +504,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add ec2 ip" />
     <MESSAGE value="fix cors" />
     <MESSAGE value="add test case to gitlab ci" />
     <MESSAGE value="add nginx and ssl and domain" />
@@ -534,6 +528,7 @@
     <MESSAGE value="fix 7" />
     <MESSAGE value="edit in infa" />
     <MESSAGE value="add dev stage without gitlab" />
-    <option name="LAST_COMMIT_MESSAGE" value="add dev stage without gitlab" />
+    <MESSAGE value="edit deployment pipeline" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit deployment pipeline" />
   </component>
 </project>

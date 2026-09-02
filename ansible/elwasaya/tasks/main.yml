@@ -71,69 +71,85 @@
 
 
 #Nginx
-- name: Install Nginx
-  apt:
-    name: nginx
-    state: present
-    update_cache: yes
+#- name: Install Nginx
+#  apt:
+#    name: nginx
+#    state: present
+#    update_cache: yes
+#
+#- name: Start and enable Nginx
+#  systemd:
+#    name: nginx
+#    state: started
+#    enabled: yes
+#
+#- name: copy nginx config
+#  copy:
+#    src: nginx.conf
+#    dest: /etc/nginx/sites-enabled/nginx.conf
+#    owner: root
+#    group: root
+#    mode: '0644'
+#  notify: Restart nginx
+#
+#- name: Create ssl directory
+#
+#  file:
+#      path: /etc/nginx/ssl
+#      state: directory
+#      mode: "0755"
+#
+#- name: copy cert
+#  copy:
+#    src: wasaya.crt
+#    dest: /etc/nginx/ssl/wasaya.crt
+#    owner: root
+#    group: root
+#    mode: '0644'
+#
+#- name: copy private key
+#  copy:
+#    src: wasaya.key
+#    dest: /etc/nginx/ssl/wasaya.key
+#    owner: root
+#    group: root
+#    mode: '0644'
+#
+#- name: reload nginx
+#  service:
+#    name: nginx
+#    state: reloaded
 
-- name: Start and enable Nginx
-  systemd:
-    name: nginx
-    state: started
-    enabled: yes
+- name: Check if swap file exists
+  stat:
+    path: /swapfile
+  register: swapfile
 
-- name: copy nginx config
-  copy:
-    src: nginx.conf
-    dest: /etc/nginx/sites-enabled/nginx.conf
-    owner: root
-    group: root
-    mode: '0644'
-  notify: Restart nginx
+- name: Create swap file
+  command: fallocate -l 1G /swapfile
+  when: not swapfile.stat.exists
 
-- name: Create ssl directory
-
+- name: Set swap file permissions
   file:
-      path: /etc/nginx/ssl
-      state: directory
-      mode: "0755"
-
-- name: copy cert
-  copy:
-    src: wasaya.crt
-    dest: /etc/nginx/ssl/wasaya.crt
+    path: /swapfile
     owner: root
     group: root
-    mode: '0644'
+    mode: '0600'
 
-- name: copy private key
-  copy:
-    src: wasaya.key
-    dest: /etc/nginx/ssl/wasaya.key
-    owner: root
-    group: root
-    mode: '0644'
+- name: Format swap file
+  command: mkswap /swapfile
+  when: not swapfile.stat.exists
 
-- name: reload nginx
-  service:
-    name: nginx
-    state: reloaded
+- name: Enable swap
+  command: swapon /swapfile
+  when: ansible_swaptotal_mb == 0
 
-#sudo fallocate -l 1G /swapfile
-#ubuntu@ip-10-0-1-220:/opt/wasaya$ sudo chmod 600 /swapfile
-#ubuntu@ip-10-0-1-220:/opt/wasaya$ sudo mkswap /swapfile
-#Setting up swapspace version 1, size = 1024 MiB (1073737728 bytes)
-#no label, UUID=1bc8b7c2-b1b3-4dca-ab35-e6b033e379f1
-#ubuntu@ip-10-0-1-220:/opt/wasaya$ sudo swapon /swapfile
-#ubuntu@ip-10-0-1-220:/opt/wasaya$ free -h
-#               total        used        free      shared  buff/cache   available
-#Mem:           908Mi       825Mi        57Mi       2.8Mi       135Mi        83Mi
-#Swap:          1.0Gi        57Mi       966Mi
-#ubuntu@ip-10-0-1-220:/opt/wasaya$ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
-#/swapfile none swap sw 0 0
-#ubuntu@ip-10-0-1-220:/opt/wasaya$ cat /etc/fstab
-#LABEL=cloudimg-rootfs	/	 ext4	discard,commit=30,errors=remount-ro	0 1
-#LABEL=BOOT	/boot	ext4	defaults	0 2
-#LABEL=UEFI	/boot/efi	vfat	umask=0077	0 1
-#/swapfile none swap sw 0 0
+- name: Persist swap in fstab
+  mount:
+    path: none
+    src: /swapfile
+    fstype: swap
+    opts: sw
+    dump: '0'
+    passno: '0'
+    state: present

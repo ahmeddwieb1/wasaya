@@ -46,3 +46,5 @@ terraform-provider-*
 workspace.xml
 
 docs/
+
+ansible/elwasaya/files/

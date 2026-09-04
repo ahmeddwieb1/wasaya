@@ -1,8 +1,8 @@
-"""init
+"""initial_schema
 
-Revision ID: 2be1a38ad324
+Revision ID: 466acc24199a
 Revises: 
-Create Date: 2026-05-11 13:13:05.424487
+Create Date: 2026-09-05 00:21:52.717166
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '2be1a38ad324'
+revision = '466acc24199a'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -63,6 +63,8 @@ def upgrade():
     sa.Column('check_interval_hours', sa.Integer(), nullable=False),
     sa.Column('grace_period_hours', sa.Integer(), nullable=False),
     sa.Column('preferred_channel', sa.String(length=32), nullable=False),
+    sa.Column('timezone', sa.String(length=64), nullable=False),
+    sa.Column('next_checkin_at', sa.DateTime(timezone=True), nullable=True),
     sa.Column('checkin_time', sa.String(length=5), nullable=False),
     sa.Column('legacy_enabled', sa.Boolean(), nullable=False),
     sa.Column('auto_alert_enabled', sa.Boolean(), nullable=False),

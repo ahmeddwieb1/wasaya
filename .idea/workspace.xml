@@ -4,6 +4,7 @@
     <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="edit deployment pipeline v2">
       <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansible/elwasaya/files/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ansible/elwasaya/files/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +64,7 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHELLCHECK.PATH&quot;: &quot;/home/dwieb/.local/share/JetBrains/PyCharm2025.3/Shell Script/shellcheck&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/terraform-dev&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/update-scheduler&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/dwieb/PycharmProjects/retail-data-generator&quot;
   }
 }</component>

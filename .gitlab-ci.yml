@@ -17,17 +17,21 @@ variables:
 docker-build:
   stage: docker
   image: docker:24
-
   services:
     - docker:dind
-
+  cache:
+    key: trivy-cache
+    paths:
+      - .trivycache/
   script:
     - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
     - docker build -t $IMAGE_NAME:$APP_VERSION .
-#    - docker push $IMAGE_NAME:$APP_VERSION
-#    - docker tag "$IMAGE_NAME:$APP_VERSION" "$IMAGE_NAME:latest"
-#    - docker push "$IMAGE_NAME:latest"
-
+    - docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd)/.trivycache:/root/.cache/
+        aquasec/trivy image --exit-code 0 --severity HIGH,CRITICAL --format table $IMAGE_NAME:$APP_VERSION
+    - docker push $IMAGE_NAME:$APP_VERSION
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+    - if: $CI_COMMIT_BRANCH == "master"
 #develop
 playbook:
   stage: playbook
@@ -55,10 +59,15 @@ deploy_dev:
     - chmod 600 ~/.ssh/id_rsa
     - echo $EC2_USER-$EC2_HOST
     - echo $IMAGE_NAME:$APP_VERSION
+    - env | grep -E '^(SECRET_KEY|SMTP_HOST|SMTP_PASSWORD|SMTP_USERNAME)' >> .env
   script:
     - |
+      scp -o StrictHostKeyChecking=no .env $EC2_USER@$EC2_HOST:/opt/wasaya/.env
       ssh -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST "
         cd /opt/wasaya
+        export IMAGE_NAME=$IMAGE_NAME
+        export APP_VERSION=$APP_VERSION
+        docker pull $IMAGE_NAME:$APP_VERSION
         docker compose down || true
         docker compose up -d
       "
@@ -76,7 +85,19 @@ update-config:
     - aws s3 cp docker-compose.prod.yml "s3://${S3_BUCKET}/docker-compose.yml"
   rules:
     - if: $CI_COMMIT_BRANCH == "master"
-      when: manual
+
+promote-latest:
+  stage: update-config
+  image: docker:24
+  services:
+    - docker:dind
+  script:
+    - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+    - docker pull $IMAGE_NAME:$APP_VERSION
+    - docker tag $IMAGE_NAME:$APP_VERSION $IMAGE_NAME:latest
+    - docker push $IMAGE_NAME:latest
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master"
 #production
 deploy_prod:
   stage: deploy-prod
@@ -94,7 +115,7 @@ deploy_prod:
       aws ssm send-command \
         --instance-ids $(cat instance_ids.txt) \
         --document-name "AWS-RunShellScript" \
-        --parameters '{"commands":["cd /opt/wasaya", "docker compose pull backend", "docker compose up -d backend"]}' \
+        --parameters '{"commands":["cd /opt/wasaya", "aws s3 cp s3://ahmeddwieb-wasaya-media/docker-compose.yml .", "docker compose pull backend", "docker compose up -d backend"]}' \
         --region "$AWS_REGION"
   rules:
   - if: $CI_COMMIT_BRANCH == "master"
@@ -107,9 +128,8 @@ production_test:
     - apk add --no-cache curl
   script:
     - sleep 300
-    - curl -fail http://api.ahmeddwieb.me/health/db
-    - curl -fail http://api.ahmeddwieb.me/health
-    - curl -fail http://api.ahmeddwieb.me/docs
+    - curl -f http://api.ahmeddwieb.me/health/db
+    - curl -f http://api.ahmeddwieb.me/health
+    - curl -f http://api.ahmeddwieb.me/docs
   rules:
   - if: $CI_COMMIT_BRANCH == "master"
-    when: manual

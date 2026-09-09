@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="edit deployment pipeline v4 but i will stop her for some time">
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="update scheduling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic/versions/1f6d564170ad_initial_migration.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic/versions/2be1a38ad324_init.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/v1/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/v1/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/v1/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/v1/auth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/v1/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/v1/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/v1/test_email.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/v1/test_email.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/user_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user_settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/scheduler/jobs.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/scheduler/jobs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/schemas/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/schemas/auth.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/schemas/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/schemas/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/auth_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/auth_service.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,14 +103,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778432377676</updated>
-    </task>
-    <task id="LOCAL-00005" summary="start deploy phase 1">
-      <option name="closed" value="true" />
-      <created>1784417564373</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1784417564374</updated>
     </task>
     <task id="LOCAL-00006" summary="first edit in gitlab and ansible tasks">
       <option name="closed" value="true" />
@@ -491,7 +488,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788554144461</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="update scheduling">
+      <option name="closed" value="true" />
+      <created>1788557586562</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1788557586565</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -509,7 +514,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add nginx and ssl and domain" />
     <MESSAGE value="fix" />
     <MESSAGE value="fix issuse in email" />
     <MESSAGE value="back to us east 1" />
@@ -534,6 +538,7 @@
     <MESSAGE value="edit deployment pipeline" />
     <MESSAGE value="edit deployment pipeline v2" />
     <MESSAGE value="edit deployment pipeline v4 but i will stop her for some time" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit deployment pipeline v4 but i will stop her for some time" />
+    <MESSAGE value="update scheduling" />
+    <option name="LAST_COMMIT_MESSAGE" value="update scheduling" />
   </component>
 </project>

@@ -15,6 +15,7 @@ class UserSettings(Base):
     preferred_channel: Mapped[str] = mapped_column(String(32), default="email", nullable=False)
     timezone: Mapped[str] = mapped_column(String(64), default="Africa/Cairo", nullable=False)
     next_checkin_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True,)
+    checkin_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
     # Time of day to send check-in (HH:MM stored as string, e.g. "09:00")
     checkin_time: Mapped[str] = mapped_column(String(5), default="09:00", nullable=False)
     legacy_enabled: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)

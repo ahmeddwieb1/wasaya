@@ -42,7 +42,6 @@ class AuthService:
             email=data.email,
             password_hash=password_hash,
             full_name=data.full_name,
-            timezone=data.timezone,
         )
         # Create default settings together with the user
         user.settings = UserSettings(user_id=user.id)

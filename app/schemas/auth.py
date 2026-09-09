@@ -6,7 +6,6 @@ class SignupRequest(BaseModel):
     email: EmailStr
     password: str
     full_name: str | None = None
-    timezone: str = "UTC"
 
 
 class LoginRequest(BaseModel):
@@ -20,6 +19,5 @@ class UserResponse(BaseModel):
     full_name: str | None
     is_verified: bool
     is_active: bool
-    timezone: str
 
     model_config = {"from_attributes": True}

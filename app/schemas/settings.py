@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-
+from datetime import datetime
 
 class SettingsUpdate(BaseModel):
     check_interval_hours: int | None = Field(default=None, ge=1, le=168)
@@ -17,8 +17,9 @@ class SettingsResponse(BaseModel):
     grace_period_hours: int
     preferred_channel: str
     checkin_time: str
+    checkin_active: bool
     timezone: str
-    next_checkin_at: str | None
+    next_checkin_at: datetime | None
     legacy_enabled: bool
     auto_alert_enabled: bool
 

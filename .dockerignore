@@ -27,3 +27,4 @@ docker-compose.yml
 .gitlab-ci.yml
 ansible/
 terraform/
+k8s/

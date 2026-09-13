@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  APP_NAME: wasaya
+  APP_ENV: development
+  FRONTEND_BASE_URL: http://localhost:3000
+  BACKEND_BASE_URL: http://localhost:8000
+  # JWT
+  JWT_ALGORITHM: HS256
+  ACCESS_TOKEN_EXPIRE_MINUTES: 1440
+  # Cookie
+  COOKIE_SECURE: false
+  COOKIE_SAMESITE: lax
+  
+  # SMTP
+  SMTP_HOST: smtp-relay.brevo.com
+  SMTP_PORT: 587
+  SMTP_USE_TLS: true
+  SMTP_FROM_EMAIL: ahmeddwieb713@gmail.com
+  SMTP_FROM_NAME: Wasaya
+

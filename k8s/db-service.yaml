@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-service                    # this name IS the DNS hostname other pods use
+spec:
+  clusterIP: None        # headless — required to match serviceName above
+  selector:
+    app: mysql              # picks up pods with this label — no manual wiring
+  ports:
+    - port: 3306
+      targetPort: 3306

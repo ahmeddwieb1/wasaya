@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wasaya-deployment                    # deployment name
+  labels:
+    app: wasaya
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wasaya                 # must match template labels below
+  template:
+    metadata:
+      labels:
+        app: wasaya
+    spec:
+      containers:
+        - name: backend-pod
+          image: #todo
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: app-config
+

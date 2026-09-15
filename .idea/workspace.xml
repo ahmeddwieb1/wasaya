@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="update scheduling">
-      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="50a72795-c02f-4549-b289-f5f0c2b8f033" name="Changes" comment="add k8s v1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +62,7 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHELLCHECK.PATH&quot;: &quot;/home/dwieb/.local/share/JetBrains/PyCharm2025.3/Shell Script/shellcheck&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/dwieb/PycharmProjects/retail-data-generator&quot;
   }
 }</component>
@@ -97,30 +94,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778432377676</updated>
-    </task>
-    <task id="LOCAL-00006" summary="first edit in gitlab and ansible tasks">
-      <option name="closed" value="true" />
-      <created>1784421690226</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1784421690226</updated>
-    </task>
-    <task id="LOCAL-00007" summary="edit 2 in gitlab and ansible tasks and docker-compose.yml">
-      <option name="closed" value="true" />
-      <created>1784480682477</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1784480682477</updated>
-    </task>
-    <task id="LOCAL-00008" summary="edit 2 in gitlab and  docker-compose.yml">
-      <option name="closed" value="true" />
-      <created>1784482887816</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1784482887816</updated>
     </task>
     <task id="LOCAL-00009" summary="edit 4 docker-compose.yml">
       <option name="closed" value="true" />
@@ -490,7 +463,31 @@
       <option name="project" value="LOCAL" />
       <updated>1788557586565</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="update document">
+      <option name="closed" value="true" />
+      <created>1789336684582</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1789336684590</updated>
+    </task>
+    <task id="LOCAL-00056" summary="update document">
+      <option name="closed" value="true" />
+      <created>1789336693756</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1789336693756</updated>
+    </task>
+    <task id="LOCAL-00057" summary="add k8s v1">
+      <option name="closed" value="true" />
+      <created>1789336842631</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1789336842631</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -508,8 +505,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix" />
-    <MESSAGE value="fix issuse in email" />
     <MESSAGE value="back to us east 1" />
     <MESSAGE value="edit name domin" />
     <MESSAGE value="find issuse" />
@@ -533,6 +528,8 @@
     <MESSAGE value="edit deployment pipeline v2" />
     <MESSAGE value="edit deployment pipeline v4 but i will stop her for some time" />
     <MESSAGE value="update scheduling" />
-    <option name="LAST_COMMIT_MESSAGE" value="update scheduling" />
+    <MESSAGE value="update document" />
+    <MESSAGE value="add k8s v1" />
+    <option name="LAST_COMMIT_MESSAGE" value="add k8s v1" />
   </component>
 </project>

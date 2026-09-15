@@ -70,7 +70,7 @@ V1 includes:
 
 The detailed V1 behavior and implementation are documented in:
 
-**[`docs/mvp-v1.md`](docs/mvp-v1.md)**
+**[`docs/mvp-v1.1.md`](docs/mvp-v1.md)**
 
 ---
 

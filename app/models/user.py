@@ -44,3 +44,10 @@ class User(Base):
     verification_tokens: Mapped[list["VerificationToken"]] = relationship(
         "VerificationToken", back_populates="user", cascade="all, delete-orphan"
     )
+    wishes: Mapped[list["Wish"]] = relationship(
+        "Wish", back_populates="user", cascade="all, delete-orphan",
+    )
+
+    media: Mapped[list["Media"]] = relationship(
+        "Media", back_populates="user", cascade="all, delete-orphan",
+    )

@@ -4,7 +4,9 @@ from app.models.user_settings import UserSettings
 from app.models.emergency_contact import EmergencyContact
 from app.models.checkin_event import CheckinEvent, CheckinStatus
 from app.models.verification_token import VerificationToken, TokenType
-
+from app.models.delivery import Delivery
+from app.models.media import Media
+from app.models.wish import Wish
 __all__ = [
     "User",
     "UserSettings",
@@ -13,4 +15,7 @@ __all__ = [
     "CheckinStatus",
     "VerificationToken",
     "TokenType",
+    "Delivery",
+    "Wish",
+    "Media"
 ]

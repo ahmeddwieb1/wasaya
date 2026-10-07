@@ -43,8 +43,10 @@ terraform-provider-*
 *.key
 *.crt
 
-workspace.xml
+.idea/workspace.xml
 
 posts/
 
 ansible/elwasaya/files/
+
+Wasaya_Product_Vision_Domain_Concepts_Roadmap.docx

@@ -1,8 +1,8 @@
 """add wishes media and deliveries
 
-Revision ID: b5b489ebcb48
+Revision ID: 353163d4625c
 Revises: e08d9329203d
-Create Date: 2026-10-07 20:43:21.486331
+Create Date: 2026-10-07 21:14:32.036430
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'b5b489ebcb48'
+revision = '353163d4625c'
 down_revision = 'e08d9329203d'
 branch_labels = None
 depends_on = None

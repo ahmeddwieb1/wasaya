@@ -42,6 +42,14 @@ class Settings(BaseSettings):
     smtp_from_name: str = "Wasaya"
     smtp_from_email: str = "noreply@wasaya.local"
 
+    # Object Storage
+    s3_endpoint: str
+    s3_access_key: str
+    s3_secret_key: str
+    s3_region: str = "us-east-1"
+    s3_bucket_name: str = "wasaya-media"
+    s3_url_expire_seconds: int = 300
+
     class Config:
         env_file = BASE_DIR / ".env"
         case_sensitive = False

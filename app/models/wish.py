@@ -56,20 +56,19 @@ class Wish(Base):
 
     channel: Mapped[Channel] = mapped_column(Enum(Channel), nullable=False)
 
-    status: Mapped[Status] = mapped_column(Enum(Status), nullable=False, default=Status.DRAFT,
-    )
+    status: Mapped[Status] = mapped_column(Enum(Status), nullable=False, default=Status.DRAFT)
 
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utcnow, nullable=False)
 
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utcnow, onupdate=_utcnow, nullable=False)
 
+    # Relationships
+
     user: Mapped["User"] = relationship("User", back_populates="wishes")
 
     media: Mapped["Media | None"] = relationship("Media", back_populates="wish", uselist=False)
 
-    deliveries: Mapped[list["Delivery"]] = relationship("Delivery", back_populates="wish",
-        cascade="all, delete-orphan",
-    )
+    deliveries: Mapped[list["Delivery"]] = relationship("Delivery", back_populates="wish")
 
     __table_args__ = (
         CheckConstraint(

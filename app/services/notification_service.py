@@ -64,6 +64,68 @@ class NotificationService:
         )
         self._send_email(contact.email, subject, body)
 
+    def send_emergency_confirmation_email(self, user: User, contact: EmergencyContact, raw_token: str) -> None:
+        from html import escape
+        from urllib.parse import quote
+
+        confirmation_url = (
+            f"{settings.frontend_base_url.rstrip('/')}"
+            f"/emergency-confirmation?token={quote(raw_token, safe='')}"
+        )
+
+        contact_name = escape(contact.name)
+        user_name = escape(user.full_name or user.email)
+        safe_url = escape(confirmation_url, quote=True)
+
+        subject = f"Please confirm a check-in concern about {user_name}"
+
+        body = f"""
+        <!doctype html>
+        <html lang="en">
+          <body style="font-family: Arial, sans-serif; line-height: 1.6;">
+            <h2>Hello {contact_name},</h2>
+    
+            <p>
+              Wasaya has been unable to receive a response to a check-in
+              from <strong>{user_name}</strong>.
+            </p>
+    
+            <p>
+              This does not establish that something has happened to them.
+              We are asking you to check on them and explicitly confirm
+              before their ready wishes can be prepared for delivery.
+            </p>
+    
+            <p>
+              Please do not confirm unless you have taken the situation
+              seriously and believe the confirmation is appropriate.
+            </p>
+    
+            <p>
+              <a href="{safe_url}"
+                 style="display:inline-block;padding:12px 18px;
+                        background:#2457c5;color:#ffffff;
+                        text-decoration:none;border-radius:6px;">
+                Review and confirm
+              </a>
+            </p>
+    
+            <p>
+              Opening this link does not confirm anything by itself.
+              You must review the page and explicitly submit the confirmation.
+            </p>
+    
+            <p>
+              If you believe this email is unexpected, you can ignore it
+              and contact the person directly.
+            </p>
+    
+            <p>— Wasaya</p>
+          </body>
+        </html>
+        """
+
+        self._send_email(contact.email, subject, body)
 
 # ------------------------------------------------------------------
 # HTML email templates

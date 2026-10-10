@@ -5,9 +5,9 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 from app.db.session import AsyncSessionLocal
 from app.models.checkin_event import CheckinStatus
-from app.repositories.contact_repository import ContactRepository
 from app.repositories.user_repository import UserRepository
 from app.services.checkin_service import CheckinService
+from app.services.emergency_confirmation_service import EmergencyConfirmationService
 from app.services.notification_service import NotificationService
 from app.repositories.settings_repository import SettingsRepository
 
@@ -99,49 +99,81 @@ async def _send_checkins_job() -> None:
 
 
 async def _expire_checkins_job() -> None:
-    """
-    Expires unanswered check-ins.
-
-    After expiration:
-        1. Send alerts.
-        2. Stop the check-in cycle.
-
-    Later this is where we can transition to Media Mode.
-    """
     async with AsyncSessionLocal() as db:
         checkin_service = CheckinService(db)
-        contact_repo = ContactRepository(db)
         user_repo = UserRepository(db)
         settings_repo = SettingsRepository(db)
-        notification_service = NotificationService()
+        confirmation_service = EmergencyConfirmationService(db)
 
-        expired_events = await checkin_service.expire_checkins()
+        try:
+            newly_expired = await checkin_service.expire_checkins()
 
-        for event in expired_events:
-            try:
-                user = await user_repo.get_by_id(event.user_id)
-                if not user:
-                    continue
+            # Include events from previous runs where email delivery failed.
+            previously_expired = (
+                await checkin_service.checkin_repo.get_expired_unalerted()
+            )
 
-                settings = await settings_repo.get_by_user_id(user.id)
+            events_by_id = {
+                event.id: event
+                for event in newly_expired + previously_expired
+            }
 
-                if settings:
-                    settings.checkin_active = False
-                    await settings_repo.save(settings)
+            for event in events_by_id.values():
+                try:
+                    user = await user_repo.get_by_id(event.user_id)
+                    if not user:
+                        logger.error(
+                            "Cannot process expired check-in %s: user not found",
+                            event.id,
+                        )
+                        continue
 
-                if not settings or settings.auto_alert_enabled:
-                    contacts = await contact_repo.get_all_by_user(user.id)
-                    for contact in contacts:
-                        notification_service.send_alert_email(user, contact)
+                    settings = await settings_repo.get_by_user_id(user.id)
 
-                # Mark event as ALERTED
-                event.status = CheckinStatus.ALERTED
-                await checkin_service.checkin_repo.save(event)
+                    if settings:
+                        settings.checkin_active = False
+                        await settings_repo.save(settings)
 
-                logger.warning("Check-in expired for user=%s. Check-in cycle stopped.", user.id)
+                    auto_alert_enabled = (
+                        settings is None or settings.auto_alert_enabled
+                    )
 
-            except Exception:
-                logger.exception("Error alerting for event %s", event.id)
+                    if auto_alert_enabled:
+                        sent_or_already_sent = (
+                            await confirmation_service.send_request_for_event(
+                                event=event,
+                                user=user,
+                            )
+                        )
+
+                        if not sent_or_already_sent:
+                            logger.warning(
+                                "No active emergency contact with email "
+                                "for user=%s event=%s",
+                                user.id,
+                                event.id,
+                            )
+                            continue
+                    # ALERTED means this event has been processed by the
+                    # alert workflow. Failed email sends raise an exception
+                    # before this point, leaving the event retryable.
+                    event.status = CheckinStatus.ALERTED
+                    await checkin_service.checkin_repo.save(event)
+
+                    logger.info(
+                        "Expired check-in processed for user=%s event=%s",
+                        user.id,
+                        event.id,
+                    )
+
+                except Exception:
+                    logger.exception(
+                        "Error processing expired check-in event=%s",
+                        event.id,
+                    )
+
+        except Exception:
+            logger.exception("Error running expired check-ins job")
 
 def start_scheduler() -> None:
     scheduler.add_job(

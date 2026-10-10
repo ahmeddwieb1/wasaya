@@ -39,7 +39,6 @@ class CheckinService:
         await self.checkin_repo.create(event)
 
         raw_token = generate_token()
-        print ("raw_tokenfor checkin", raw_token)
         token_record = VerificationToken(
             user_id=user.id,
             token_hash=hash_token(raw_token),

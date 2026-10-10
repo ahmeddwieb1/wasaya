@@ -7,6 +7,7 @@ from app.models.verification_token import VerificationToken, TokenType
 from app.models.delivery import Delivery
 from app.models.media import Media
 from app.models.wish import Wish
+from app.models.emergency_confirmation import EmergencyConfirmation
 __all__ = [
     "User",
     "UserSettings",
@@ -17,5 +18,6 @@ __all__ = [
     "TokenType",
     "Delivery",
     "Wish",
-    "Media"
+    "Media",
+    "EmergencyConfirmation"
 ]

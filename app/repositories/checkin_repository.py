@@ -53,3 +53,11 @@ class CheckinRepository:
             .limit(1)
         )
         return result.scalar_one_or_none()
+    async def get_expired_unalerted(self) -> list[CheckinEvent]:
+        """Return expired events whose contact notification is not completed."""
+        result = await self.db.execute(
+            select(CheckinEvent)
+            .options(selectinload(CheckinEvent.user))
+            .where(CheckinEvent.status == CheckinStatus.EXPIRED)
+        )
+        return list(result.scalars().all())

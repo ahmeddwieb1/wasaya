@@ -2,8 +2,9 @@ import enum
 import uuid
 from datetime import datetime, timezone
 
-from sqlalchemy import (DateTime, Enum, ForeignKey, String, Text)
+from sqlalchemy import DateTime, Enum, ForeignKey, String, Text, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from app.db.base import Base
 
 def _utcnow() -> datetime:
@@ -17,6 +18,7 @@ class Delivery(Base):
 
     class Status(str, enum.Enum):
         PENDING = "PENDING"
+        SENDING = "SENDING"
         SENT = "SENT"
         FAILED = "FAILED"
 
@@ -33,6 +35,14 @@ class Delivery(Base):
 
     error_message: Mapped[str | None] = mapped_column(Text, nullable=True)
 
+    attempt_count: Mapped[int] = mapped_column(nullable=False, default=0)
+
+    last_attempt_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+
+    next_attempt_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utcnow, nullable=False)
 
     wish: Mapped["Wish"] = relationship("Wish", back_populates="deliveries")
+
+    __table_args__ = (UniqueConstraint("wish_id", name="uq_deliveries_wish_id"),)

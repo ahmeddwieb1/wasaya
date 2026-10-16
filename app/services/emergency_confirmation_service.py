@@ -1,9 +1,9 @@
 from datetime import datetime, timezone
 
 from fastapi import HTTPException
-from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.models.wish import Wish
 from app.models.checkin_event import CheckinEvent
 from app.models.delivery import Delivery
 from app.models.emergency_confirmation import EmergencyConfirmation
@@ -139,25 +139,32 @@ class EmergencyConfirmationService:
 
         try:
             for wish in wishes:
-                # Avoid creating another delivery if one already exists
-                # for this one-time wish.
-                existing_deliveries = await self.delivery_repo.get_by_wish_id(
-                    wish.id
-                )
-                if existing_deliveries:
+                # V4.1: text-only Email.
+                # Media support is deferred to V4.3.
+                if (
+                    wish.status != Wish.Status.READY
+                    or wish.content_type != Wish.ContentType.TEXT
+                    or wish.channel != Wish.Channel.EMAIL
+                    or not wish.recipient_email
+                    or not wish.content_text
+                ):
+                    continue
+
+                existing = await self.delivery_repo.get_by_wish_id(wish.id)
+                if existing:
                     continue
 
                 self.db.add(
                     Delivery(
                         wish_id=wish.id,
-                        channel=wish.channel,
+                        channel=Delivery.Channel.EMAIL,
                         status=Delivery.Status.PENDING,
                     )
                 )
                 created_count += 1
 
-            # Confirmation consumption and delivery creation are committed
-            # together, rather than committing each delivery separately.
+            # Commit confirmation consumption and queued deliveries together.
+            # UNIQUE(deliveries.wish_id) is the final duplicate guard.
             await self.db.commit()
 
         except Exception:

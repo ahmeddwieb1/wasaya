@@ -7,6 +7,7 @@ from app.db.session import AsyncSessionLocal
 from app.models.checkin_event import CheckinStatus
 from app.repositories.user_repository import UserRepository
 from app.services.checkin_service import CheckinService
+from app.services.delivery_service import DeliveryService
 from app.services.emergency_confirmation_service import EmergencyConfirmationService
 from app.services.notification_service import NotificationService
 from app.repositories.settings_repository import SettingsRepository
@@ -175,6 +176,20 @@ async def _expire_checkins_job() -> None:
         except Exception:
             logger.exception("Error running expired check-ins job")
 
+async def _process_deliveries_job() -> None:
+    async with AsyncSessionLocal() as db:
+        try:
+            processed = await DeliveryService(db).process_due_deliveries(
+                batch_size=20
+            )
+            if processed:
+                logger.info(
+                    "Delivery worker processed %s delivery record(s)",
+                    processed,
+                )
+        except Exception:
+            logger.exception("Error processing due deliveries")
+
 def start_scheduler() -> None:
     scheduler.add_job(
         _send_checkins_job,
@@ -190,6 +205,16 @@ def start_scheduler() -> None:
         minutes=1,
         id="expire_checkins",
         replace_existing=True,
+    )
+
+    scheduler.add_job(
+        _process_deliveries_job,
+        trigger="interval",
+        minutes=1,
+        id="process_deliveries",
+        replace_existing=True,
+        max_instances=1,
+        coalesce=True,
     )
 
     scheduler.start()

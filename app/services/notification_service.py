@@ -1,6 +1,7 @@
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from html import escape
 
 from app.core.config import get_settings
 from app.models.emergency_contact import EmergencyContact
@@ -63,6 +64,36 @@ class NotificationService:
             user_name=user.full_name or user.email,
         )
         self._send_email(contact.email, subject, body)
+
+
+    def send_wish_email(
+        self,
+        recipient_email: str,
+        recipient_name: str,
+        sender_name: str,
+        wish_title: str,
+        wish_text: str,
+    ) -> None:
+        """Send a text-only Wish email. Escape user-controlled HTML values."""
+        safe_recipient = escape(recipient_name or "there")
+        safe_sender = escape(sender_name)
+        safe_title = escape(wish_title or "A message for you")
+        safe_text = escape(wish_text).replace("\n", "<br>")
+
+        subject = f"A message from {sender_name}"
+        body = f"""<!doctype html>
+            <html lang="en">
+              <body style="font-family:Arial,sans-serif;line-height:1.7;color:#222;
+                           max-width:600px;margin:24px auto;padding:24px;">
+                <h2 style="color:#2457c5;">A message for you</h2>
+                <p>Hello {safe_recipient},</p>
+                <p><strong>{safe_sender}</strong> prepared this message for you through Wasaya.</p>
+                <h3>{safe_title}</h3>
+                <div style="white-space:normal;overflow-wrap:anywhere;">{safe_text}</div>
+                <p style="margin-top:32px;color:#777;font-size:13px;">Delivered by Wasaya.</p>
+              </body>
+            </html>"""
+        self._send_email(recipient_email, subject, body)
 
     def send_emergency_confirmation_email(self, user: User, contact: EmergencyContact, raw_token: str) -> None:
         from html import escape

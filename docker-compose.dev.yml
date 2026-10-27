@@ -122,7 +122,22 @@ services:
       - "9100:9100"
     networks:
       - backend-net
-
+  mysql-exporter:
+    image: prom/mysqld-exporter:v0.15.1
+    restart: unless-stopped
+    environment:
+      MYSQLD_EXPORTER_PASSWORD: rootpassword
+    command:
+      - "--mysqld.address=db:3306"
+      - "--mysqld.username=root"
+    ports:
+      - "9104:9104"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - backend-net
+      
 networks:
   backend-net:
     name: elwasya_backend-net
